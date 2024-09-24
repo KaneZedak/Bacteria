@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e3b9545c9581840b29bfc502c13fbf, type: 3}
+  m_Name: termination
+  m_EditorClassIdentifier: 
+  text: Experiment terminated. Subject dies from dehydration. Simulation complete,
+    eliminating remaining microorganisms.
+  conditions:
+  - condition: {fileID: 11400000, guid: daff1d980c671cf48b2a11fc7dec84f9, type: 2}
+    value: 1
+  - condition: {fileID: 11400000, guid: 3dd9b54f0b88da64fa1b8db8e5498aae, type: 2}
+    value: 1
