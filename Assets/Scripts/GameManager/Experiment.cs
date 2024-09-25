@@ -33,11 +33,10 @@ public class Experiment : MonoBehaviour
 
         MyEventSystem.playerDeath += onPlayerDeath;
         MyEventSystem.dropletCollected += onDropCollect;
-        
+        initializeConditions();   
     }
     void Start()
     {
-        initializeConditions();
         gameStart.setValue(true);
     }
 

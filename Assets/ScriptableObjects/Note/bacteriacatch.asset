@@ -14,6 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: No matter evil or good, predation avails in nature. Is that bacteria on our
     side by coincidence?
-  conditions:
-  - condition: {fileID: 11400000, guid: 358f8d31f13ba4c4cb3e1c8f53c4573c, type: 2}
-    value: 1
+  conditions: {fileID: 0}

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: note1
   m_EditorClassIdentifier: 
   text: 'Experiment started: subject released. Estimated time of survival 5 minutes.'
-  conditions:
-  - condition: {fileID: 11400000, guid: 804f60741653ef044900542b7463aa89, type: 2}
+  allConditions:
+  - conditionObj: {fileID: 11400000, guid: 804f60741653ef044900542b7463aa89, type: 2}
     value: 1

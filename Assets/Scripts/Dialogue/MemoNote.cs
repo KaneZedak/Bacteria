@@ -2,17 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Note", order = 1)]
+[CreateAssetMenu(fileName = "Note", menuName = "ScriptableObjects/Note", order = 1)]
 public class MemoNote : ScriptableObject
 {
-    [System.Serializable]
-    public class EventCondition
-    {
-        public ConditionObject condition;
-        public bool value;
-    }
+    public delegate void noteText(string displayText);
+    noteText subscriber;
     public string text;
     
-    public EventCondition[] conditions;
-    
+    public EventCondition[] allConditions;
+    private ConditionChecker conditions;
+
+    public void initialize() {
+        conditions = new ConditionChecker();
+        conditions.initConditions(allConditions);
+        conditions.subscribe(displayNote);
+    }
+
+    public void addNote(noteText caller) {
+        subscriber = caller;
+    }
+
+    public void displayNote() {
+        subscriber(text);
+    }
 }
