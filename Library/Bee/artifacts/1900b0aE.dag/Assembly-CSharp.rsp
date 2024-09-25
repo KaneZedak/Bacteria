@@ -412,6 +412,8 @@
 "Assets/Scripts/UI/hydrationBar.cs"
 "Assets/Scripts/UI/NewBehaviourScript.cs"
 "Assets/Scripts/UI/playerProgress.cs"
+"Assets/Scripts/UI/RollingText.cs"
+"Assets/Scripts/UI/RollingTextBox.cs"
 "Assets/Scripts/Waterdrop/Waterdrop.cs"
 -langversion:9.0
 /deterministic
