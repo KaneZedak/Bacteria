@@ -12,7 +12,15 @@ public class NarrativeState : ScriptableObject
         callback = functionCall;
     }
 
+    public virtual void OnEnterState() {
+
+    }
+
     public virtual void OnUpdate() {
+    }
+
+    public virtual void OnLeavingState() {
+
     }
 
     public virtual void stateFinished() {

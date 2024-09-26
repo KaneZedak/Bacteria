@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "helloState", menuName = "Testing/helloState")]
-public class helloState : NarrativeState
+public class helloState : NPCState
 {
     public override void OnUpdate() {
-        Debug.Log("hello");
+        Debug.Log(((testNPCVariables)npcVariables).a);
     }
 }

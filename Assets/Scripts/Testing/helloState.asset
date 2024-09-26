@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c31d23df4bfc4747b1898f2374bf4a5, type: 3}
   m_Name: helloState
   m_EditorClassIdentifier: 
+  npcVariables: {fileID: 11400000, guid: 6d2f1b24c5a514a45bc5f06ecf82a41d, type: 2}

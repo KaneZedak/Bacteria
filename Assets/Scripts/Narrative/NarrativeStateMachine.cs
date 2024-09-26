@@ -13,16 +13,21 @@ public class NarrativeStateMachine: ScriptableObject
             state.setCallback(nextState);
         }
     }
+
     public void OnUpdate()
     {
         stateList[stateIndex].OnUpdate();
     }
 
     public void nextState() {
+        stateList[stateIndex].OnLeavingState();
         if(stateIndex < stateList.Length - 1) stateIndex++;
+        stateList[stateIndex].OnEnterState();
     }
 
     public void previousState() {
+        stateList[stateIndex].OnLeavingState();
         if(stateIndex > 0) stateIndex--;
+        stateList[stateIndex].OnEnterState();
     }
 }
