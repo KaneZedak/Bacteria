@@ -8,6 +8,7 @@ TagManager:
   - waterdrop
   - npc
   - enemy
+  - friendly
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Water
   - UI
   - OverlayCamera
-  - 
+  - SplittingBot
   - 
   - 
   - 

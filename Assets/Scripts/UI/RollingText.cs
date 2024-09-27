@@ -4,19 +4,32 @@ using UnityEngine;
 using TMPro;
 public class RollingText : MonoBehaviour
 {
-    public TMP_Text tmpText;
-    string textMessage;
-    int index = 0;
+    private TMP_Text tmpText;
+    public float waitingTime;
+    private IEnumerator coroutine;
+    private string textMessage;
+    private int index = 0;
     
     void Start() {
         tmpText = GetComponent<TMP_Text>();
+        DialogueManager.showText += displayRollingText;
+        coroutine = printText(waitingTime);
     }
 
+    public void displayRollingText(string text) {
+        StopCoroutine(coroutine);
+        coroutine = printText(waitingTime);
+
+        tmpText.text = "";
+        setText(text);
+        displayText(waitingTime);
+    }
     public void setText(string text) {
         this.textMessage = text;
+        index = 0;
     }
     public void displayText(float waitTime) {
-        StartCoroutine(printText(waitTime));
+        StartCoroutine(coroutine);
     }
 
     private IEnumerator printText(float waitTime) {

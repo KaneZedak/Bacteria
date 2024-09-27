@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class player : MonoBehaviour
 {
@@ -22,8 +23,17 @@ public class player : MonoBehaviour
     private Vector2 currentDirection = new Vector2();
     private Vector3 pos = new Vector3();
 
-    private bool enemyInRange = false;
-    private GameObject target = null;
+    public string attackKey = "g";
+    public string shareKey = "h";
+    public float damageForce;
+    public float damageFromBot;
+
+    [SerializeField] private bool enemyInRange = false;
+    [SerializeField] private GameObject target = null;
+    [SerializeField] private bool friendlyInRange = false;
+    [SerializeField] private GameObject friendlyTarget = null;
+
+    public UnityEvent OnInteractWithFriendly;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +44,29 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerStatusUpdate();
 
+        if(Input.GetKeyDown(attackKey)) {
+            if(enemyInRange && target != null) {
+                Destroy(target);
+                target = null;
+                enemyInRange = false;
+            }
+        }
+
+        if(Input.GetKeyDown(shareKey)) {
+            if(friendlyInRange && friendlyTarget != null) {
+                friendlyTarget.GetComponent<FriendlyBacteria>().setFollowObject(this.gameObject);
+                friendlyTarget = null;
+                friendlyInRange = false;
+                hydration = hydration / 2;   
+            }
+        }
+
+        
+    }
+
+    void playerStatusUpdate() {
         Vector2 direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         direction = direction.normalized;
         rigidbody.AddForce(direction * dragForce);
@@ -53,12 +85,16 @@ public class player : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
     void OnTriggerEnter2D(Collider2D colObj)
     {
         if(colObj.gameObject.tag == "enemy") {
             enemyInRange = true;
             target = colObj.gameObject;
+        }
+
+        if(colObj.gameObject.tag == "friendly") {
+            friendlyInRange = true;
+            friendlyTarget = colObj.gameObject;
         }
     }
 
@@ -78,6 +114,13 @@ public class player : MonoBehaviour
             Destroy(collision.collider.gameObject.gameObject);
             MyEventSystem.dropletCollected();
         }
+        if(collision.collider.gameObject.tag == "enemy") {
+            Vector2 targetPos = new Vector2(collision.collider.gameObject.transform.position.x, collision.collider.gameObject.transform.position.y);
+            Vector2 selfPos = new Vector2(transform.position.x, transform.position.y);
+            Vector2 direction = (selfPos - targetPos).normalized;
+            rigidbody.AddForce(damageForce * direction, ForceMode2D.Impulse);
+            hydration -= damageFromBot;
+        }
         /*
         if(collision.collider.gameObject.tag == "enemy" && collision.collider.gameObject.transform.localScale.x < transform.localScale.x) {
             Destroy(collision.collider.gameObject);
@@ -85,4 +128,6 @@ public class player : MonoBehaviour
             if(MyEventSystem.OnBacteriaCatch != null) MyEventSystem.OnBacteriaCatch();
         }*/
     }
+
+    
 }

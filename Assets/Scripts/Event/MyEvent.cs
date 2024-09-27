@@ -8,6 +8,7 @@ public class MyEvent : ScriptableObject
     private MyEventListener[] listeners;
     public delegate void Handler();
     Handler eventHandler;
+    
 
     public void subscribe(Handler func) {
         eventHandler += func;
@@ -18,4 +19,5 @@ public class MyEvent : ScriptableObject
     public void invoke() {
         if(eventHandler != null) eventHandler();
     }
+
 }
