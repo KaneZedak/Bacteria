@@ -2,3 +2,6 @@
 /.plastic
 /Library/PackageCache
 /Temp
+/Library/*
+/UserSettings/*
+/Logs/*
