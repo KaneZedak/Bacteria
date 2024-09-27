@@ -11,6 +11,7 @@ public class Experiment : MonoBehaviour
     public static float surviveTime;
     public static int totalDropCollected;
     public static int dropCollected;
+    public static bool nanoReplication;
 
     public GameObject player;
     public GameObject playerPrefab;
@@ -32,6 +33,7 @@ public class Experiment : MonoBehaviour
         currentBacteria = player;
         totalDropCollected = 0;
         dropCollected = 0;
+        nanoReplication = false;
 
         MyEventSystem.playerDeath += onPlayerDeath;
         MyEventSystem.dropletCollected += onDropCollect;
@@ -70,7 +72,9 @@ public class Experiment : MonoBehaviour
         dropCollected += 1;
     }
 
-    
+    public void enableReplication() {
+        nanoReplication = true;
+    }
     public static void updateCondition(ConditionObject condition, bool value) {
         condition.setValue(value);
     }
