@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6e3b9545c9581840b29bfc502c13fbf, type: 3}
-  m_Name: Data
+  m_Script: {fileID: 11500000, guid: 074cbba84025d3449a37e30cac7ca82f, type: 3}
+  m_Name: ConditionChecker
   m_EditorClassIdentifier: 
-  text: 
   conditions:
-  - condition: {fileID: 0}
-    value: 0
+  - conditionObj: {fileID: 11400000, guid: 804f60741653ef044900542b7463aa89, type: 2}
+    value: 1
+  repeatedTrigger: 0

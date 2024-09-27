@@ -18,6 +18,8 @@ public class Experiment : MonoBehaviour
     public ConditionList conditionList;    
     public ConditionObject gameStart;
 
+    public NarrativeStateMachine storyStateMachine;
+
     public void killPlayer() {
         currentBacteria.GetComponent<player>().stillDrainRate = 120;
         //MyEventSystem.playerDeath();
@@ -33,12 +35,13 @@ public class Experiment : MonoBehaviour
 
         MyEventSystem.playerDeath += onPlayerDeath;
         MyEventSystem.dropletCollected += onDropCollect;
-        
+        initializeConditions();
+        storyStateMachine.initialize();
     }
     void Start()
     {
-        initializeConditions();
         gameStart.setValue(true);
+        storyStateMachine.startNarrative();
     }
 
     // Update is called once per frame
@@ -76,4 +79,7 @@ public class Experiment : MonoBehaviour
         conditionList.initializeConditions();
     }
 
+    public void setState(NarrativeState newState) {
+        storyStateMachine.transitionToState(newState);
+    }
 }

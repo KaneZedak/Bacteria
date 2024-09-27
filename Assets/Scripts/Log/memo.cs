@@ -8,12 +8,12 @@ public class Memo : MonoBehaviour
     public TMP_Text note;
     
     public MemoNote[] noteList;
-    public ConditionList conditionList;
+    //public ConditionList conditionList;
 
     public enum Condition {PlayerDeath, DropCollected, GameStart, Starvation}
     /*
     private Dictionary<Condition, bool> conditionValue = new Dictionary<Condition, bool>();*/
-    private Dictionary<MemoNote, bool> noteTriggered = new Dictionary<MemoNote, bool>();
+    //private Dictionary<MemoNote, bool> noteTriggered = new Dictionary<MemoNote, bool>();
     
 
     void Awake() {
@@ -21,14 +21,20 @@ public class Memo : MonoBehaviour
         MyEventSystem.playerDeath += setPlayerDeath;
         MyEventSystem.playerDeath += countStarvation;
         MyEventSystem.dropletCollected += setDropCollect;*/
-        MyEventSystem.OnConditionUpdate += checkCondition;
+        //MyEventSystem.OnConditionUpdate += checkCondition;
+        /*
         foreach(MemoNote note in noteList) {
             noteTriggered[note] = false;
+        }*/
+        foreach(MemoNote singleNote in noteList) {
+            singleNote.initialize();
+            singleNote.addNote(displayText);
         }
     }
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
@@ -37,11 +43,11 @@ public class Memo : MonoBehaviour
         
     }
     
-
+    /*
     void checkCondition() {
         foreach(MemoNote note in noteList) {
             bool displayNote = true;
-            foreach(MemoNote.EventCondition noteCondition in note.conditions) {
+            foreach(EventCondition noteCondition in note.conditions) {
                 if(noteCondition.value != noteCondition.condition.value) {
                     displayNote = false;
                     break;
@@ -53,7 +59,7 @@ public class Memo : MonoBehaviour
             }
         }
         
-    }
+    }*/
 
     void displayText(string message) {
         if(note != null) {

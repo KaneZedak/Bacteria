@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e3b9545c9581840b29bfc502c13fbf, type: 3}
   m_Name: note1
   m_EditorClassIdentifier: 
-  text: 'Experiment started: subject released. Estimated time of survival 5 minutes.'
-  conditions:
-  - condition: {fileID: 11400000, guid: 804f60741653ef044900542b7463aa89, type: 2}
+  text: 'Scientist: We have finally found a cure to eliminate this type of bacteria.
+    The nano-cells were able to kill all the bacteria. Now the plate is completely
+    clean.'
+  allConditions:
+  - conditionObj: {fileID: 11400000, guid: 804f60741653ef044900542b7463aa89, type: 2}
     value: 1

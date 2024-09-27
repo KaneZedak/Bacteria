@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f59f9cbdc17dad04aa26cc5a55afab3d, type: 3}
+  m_Name: 1
+  m_EditorClassIdentifier: 
+  dialogues:
+  - speaker: {fileID: 11400000, guid: 6112e459156e8894485a5ff86789da74, type: 2}
+    dialogueText: We have finally found a cure to eliminate this type of bacteria.
+      The nano-cells were able to kill all the bacteria. Now the plate is completely
+      clean.
+  - speaker: {fileID: 11400000, guid: 6a4d29bf186267847aebe7997ba7d30f, type: 2}
+    dialogueText: Yes sir.. But look. There's still one left.
+  - speaker: {fileID: 11400000, guid: 6112e459156e8894485a5ff86789da74, type: 2}
+    dialogueText: Oh yes. Interesting. It seems this one is the last to die, but
+      it will die soon.
+  - speaker: {fileID: 11400000, guid: 6a4d29bf186267847aebe7997ba7d30f, type: 2}
+    dialogueText: You're right, sir. So... shall we terminate the experiment? We've
+      achieved what we were looking for.
+  - speaker: {fileID: 11400000, guid: 6112e459156e8894485a5ff86789da74, type: 2}
+    dialogueText: Yes... but let's just wait a few more minutes and observe what
+      this last one does in its final moments. Based on my calculation, it won't
+      survive more than five minutes.
