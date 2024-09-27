@@ -21,6 +21,7 @@ public class ConditionChecker : MyEvent
         initialize();
     }
     public void initialize() {
+        triggered = false;
         foreach(EventCondition condition in conditions) {
             condition.conditionObj.subscribe(checkAllConditions);
         }

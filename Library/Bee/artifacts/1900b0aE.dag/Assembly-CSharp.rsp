@@ -418,6 +418,7 @@
 "Assets/Scripts/Narrative/NarrativeStateMachine.cs"
 "Assets/Scripts/Narrative/NarrativeStates/DialogueIntermission.cs"
 "Assets/Scripts/Narrative/NarrativeStates/PlayerExploration.cs"
+"Assets/Scripts/NPC/AloneNano.cs"
 "Assets/Scripts/NPC/BacteriaSpawner.cs"
 "Assets/Scripts/NPC/EnemyBacteria.cs"
 "Assets/Scripts/NPC/FriendlyBacteria.cs"

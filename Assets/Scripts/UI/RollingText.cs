@@ -6,6 +6,7 @@ public class RollingText : MonoBehaviour
 {
     private TMP_Text tmpText;
     public float waitingTime;
+    public MyEvent textFinishDisplaying;
     private IEnumerator coroutine;
     private string textMessage;
     private int index = 0;
@@ -37,5 +38,8 @@ public class RollingText : MonoBehaviour
             tmpText.text = tmpText.text + textMessage[index++];
             yield return new WaitForSeconds(waitTime);
         }
+        textFinishDisplaying.invoke();
     }
+
+    
 }

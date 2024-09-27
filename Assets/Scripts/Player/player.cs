@@ -32,13 +32,23 @@ public class player : MonoBehaviour
     [SerializeField] private GameObject target = null;
     [SerializeField] private bool friendlyInRange = false;
     [SerializeField] private GameObject friendlyTarget = null;
+    [SerializeField] private ConditionObject killedNanocell;
+    [SerializeField] private ConditionChecker killChecker;
 
     public UnityEvent OnInteractWithFriendly;
+    public UnityEvent OnFirstMove;
+    public UnityEvent AfterMetNanocell;
+    public UnityEvent AfterKill;
+
+    private bool metNanocell = false;
+    private bool moved = false;
     // Start is called before the first frame update
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         originalMass = rigidbody.mass;
+        killChecker.initialize();
+        killChecker.subscribe(AfterKill.Invoke);
     }
 
     // Update is called once per frame
@@ -51,6 +61,9 @@ public class player : MonoBehaviour
                 Destroy(target);
                 target = null;
                 enemyInRange = false;
+                if(killedNanocell) {
+                    if(killedNanocell.value != true) killedNanocell.setValue(true);
+                }
             }
         }
 
@@ -80,6 +93,10 @@ public class player : MonoBehaviour
             rigidbody.velocity = rigidbody.velocity.normalized * maxSpeed;
         }
 
+        if(!moved && rigidbody.velocity.magnitude > 2) {
+            moved = true;
+            OnFirstMove.Invoke();
+        }
         if(hydration < 0) {
             MyEventSystem.playerDeath();
             Destroy(this.gameObject);
@@ -88,6 +105,10 @@ public class player : MonoBehaviour
     void OnTriggerEnter2D(Collider2D colObj)
     {
         if(colObj.gameObject.tag == "enemy") {
+            if(!metNanocell) {
+                metNanocell = true;
+                AfterMetNanocell.Invoke();
+            }
             enemyInRange = true;
             target = colObj.gameObject;
         }
@@ -97,6 +118,7 @@ public class player : MonoBehaviour
             friendlyTarget = colObj.gameObject;
         }
     }
+
 
     void OnTriggerExit2D(Collider2D colObj)
     {
