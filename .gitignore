@@ -2,5 +2,5 @@
 /.plastic
 /Library/PackageCache
 /Temp
-/Library
-/Library/Artifacts
+/Library/*
+/UserSettings/*
