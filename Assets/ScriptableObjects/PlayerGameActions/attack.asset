@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   actionName: attack
-  actionBinding: g
+  actionBinding: G
