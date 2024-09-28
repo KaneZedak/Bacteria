@@ -1,0 +1,728 @@
+fileFormatVersion: 2
+guid: d708df721bf1f7b4eab29b4da868c740
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: WEEK1-bs_0
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 1287
+        width: 43
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9850f6403b4e325448c575b7de7ed6a0
+      internalID: -2119830033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_1
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 1286
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5712ac1575c17b4bab930909d7d5703
+      internalID: 1357831637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_2
+      rect:
+        serializedVersion: 2
+        x: 1287
+        y: 1146
+        width: 295
+        height: 294
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bbd924861ca7044ea738a0fc26b6b55
+      internalID: -1827403272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_23
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 929
+        width: 42
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0136d6fc5d667741b5be7d6bfcb0370
+      internalID: 710472134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_24
+      rect:
+        serializedVersion: 2
+        x: 1433
+        y: 917
+        width: 43
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73293322a69e67143be1ff50fec14d3a
+      internalID: -528636695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_25
+      rect:
+        serializedVersion: 2
+        x: 1533
+        y: 888
+        width: 43
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18de724356a720143b388590bca18840
+      internalID: -1350523148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_26
+      rect:
+        serializedVersion: 2
+        x: 1652
+        y: 867
+        width: 42
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f5956a2d3290434d81e778887eca209
+      internalID: -380379110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_27
+      rect:
+        serializedVersion: 2
+        x: 1739
+        y: 828
+        width: 44
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0e68efee287f5e46959e1708e77d48e
+      internalID: 2004588804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_28
+      rect:
+        serializedVersion: 2
+        x: 1838
+        y: 828
+        width: 45
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edfe9b208831dae4792c29928da6bdf4
+      internalID: -1870547147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_29
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 828
+        width: 49
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed46c128cba4740449ec1bc39ecd6a7b
+      internalID: 1299755271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_30
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 546
+        width: 124
+        height: 392
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0db6cc42b103b5e47bb3df249866a495
+      internalID: 1336201041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_31
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 551
+        width: 124
+        height: 387
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3638cb57f8f61274dac2cd00cd8be475
+      internalID: 1774755933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_32
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 543
+        width: 124
+        height: 395
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9ac14b911c6c9b4faaab1bb78a5fc58
+      internalID: 1884339375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_33
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 686
+        width: 195
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d90a930738c4d534495ede2f1bf98c17
+      internalID: 216387167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_34
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 686
+        width: 195
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6ac700835d1d654c88dcbdb127c77f4
+      internalID: 1228477704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_35
+      rect:
+        serializedVersion: 2
+        x: 1238
+        y: 442
+        width: 391
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9697f099253aad40b7e7154461a2a84
+      internalID: 20651673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_36
+      rect:
+        serializedVersion: 2
+        x: 1673
+        y: 442
+        width: 391
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e49e4015aeef5ee40b25acb5b2b1396c
+      internalID: 1643134471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_37
+      rect:
+        serializedVersion: 2
+        x: 2142
+        y: 442
+        width: 391
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cc23d621ceda5a49a7031576d5d303c
+      internalID: 44443751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_38
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 114
+        width: 124
+        height: 348
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4adbe588f10f8184ba5fe8ce798adbe7
+      internalID: -1044555005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_39
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 146
+        width: 124
+        height: 316
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8600a6dbdd8828f45898fdfe2698274e
+      internalID: 1813864422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_40
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 208
+        width: 124
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1f596c9d53364748aa10b4f3e0dbe6a
+      internalID: -1527280859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_41
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 208
+        width: 125
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7897d0f393541a4ea1b70dc7be36c25
+      internalID: -759356444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_42
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 208
+        width: 124
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3001d51ccad1b52408f82aa54fd1c418
+      internalID: -836956361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_43
+      rect:
+        serializedVersion: 2
+        x: 1238
+        y: 0
+        width: 391
+        height: 364
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdeb62243ddf0ed44a550c7fcb9f0804
+      internalID: -1512468265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_44
+      rect:
+        serializedVersion: 2
+        x: 1673
+        y: 87
+        width: 391
+        height: 277
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe2965d817b51714e9a4a55de914ac37
+      internalID: -1184271558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_45
+      rect:
+        serializedVersion: 2
+        x: 2142
+        y: 102
+        width: 391
+        height: 278
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccf385a7464a06948b907e5fc164c88e
+      internalID: -200009988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WEEK1-bs_3
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 1018
+        width: 208
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aab2134adfac9aa47b8899009792d39f
+      internalID: 1285121517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      WEEK1-bs_0: -2119830033
+      WEEK1-bs_1: 1357831637
+      WEEK1-bs_10: -1715534466
+      WEEK1-bs_11: 1201213993
+      WEEK1-bs_12: 1334652161
+      WEEK1-bs_13: -555783466
+      WEEK1-bs_14: 1768339741
+      WEEK1-bs_15: 1376723577
+      WEEK1-bs_16: -373647695
+      WEEK1-bs_17: 1457715757
+      WEEK1-bs_18: 2144888929
+      WEEK1-bs_19: 193452917
+      WEEK1-bs_2: -1827403272
+      WEEK1-bs_20: -1076088174
+      WEEK1-bs_21: -1410668067
+      WEEK1-bs_22: -1110915485
+      WEEK1-bs_23: 710472134
+      WEEK1-bs_24: -528636695
+      WEEK1-bs_25: -1350523148
+      WEEK1-bs_26: -380379110
+      WEEK1-bs_27: 2004588804
+      WEEK1-bs_28: -1870547147
+      WEEK1-bs_29: 1299755271
+      WEEK1-bs_3: 1285121517
+      WEEK1-bs_30: 1336201041
+      WEEK1-bs_31: 1774755933
+      WEEK1-bs_32: 1884339375
+      WEEK1-bs_33: 216387167
+      WEEK1-bs_34: 1228477704
+      WEEK1-bs_35: 20651673
+      WEEK1-bs_36: 1643134471
+      WEEK1-bs_37: 44443751
+      WEEK1-bs_38: -1044555005
+      WEEK1-bs_39: 1813864422
+      WEEK1-bs_4: -903524620
+      WEEK1-bs_40: -1527280859
+      WEEK1-bs_41: -759356444
+      WEEK1-bs_42: -836956361
+      WEEK1-bs_43: -1512468265
+      WEEK1-bs_44: -1184271558
+      WEEK1-bs_45: -200009988
+      WEEK1-bs_46: -892334704
+      WEEK1-bs_5: -1286912778
+      WEEK1-bs_6: -614259385
+      WEEK1-bs_7: -1990970428
+      WEEK1-bs_8: -377742615
+      WEEK1-bs_9: -992285433
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

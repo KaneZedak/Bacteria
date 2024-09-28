@@ -5,7 +5,6 @@ using UnityEngine;
 public class CHAIR : MonoBehaviour
 {
     public GameObject seat;
-    public PlayerGameAction gameAction;
     private Rigidbody2D rigidbody;
     private bool occupied = false;
 

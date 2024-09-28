@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 2439149755527637121}
   - component: {fileID: 6011000490806921865}
   - component: {fileID: 3045686825770131809}
-  - component: {fileID: 763280485518171863}
+  - component: {fileID: -3964451061540331907}
   m_Layer: 0
   m_Name: PlayerBacteria
   m_TagString: player
@@ -145,7 +145,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 1336201041, guid: d708df721bf1f7b4eab29b4da868c740, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -172,12 +172,251 @@ MonoBehaviour:
   dragForce: 5
   stoppingSpeed: 0
   maxSpeed: 5
-  hydration: 10
+  hydration: 150
   stillDrainRate: 0.5
   movingDrainRate: 2
-  maxHydration: 10
-  minScale: 0.7
+  maxHydration: 150
+  minScale: 0.3
   maxScale: 1
+  damageForce: 13.58
+  damageFromBot: 0
+  enemyInRange: 0
+  target: {fileID: 0}
+  friendlyInRange: 0
+  friendlyTarget: {fileID: 0}
+  killedNanocell: {fileID: 11400000, guid: 758a4d58e88e44541a9aa6ea46180f3e, type: 2}
+  killChecker: {fileID: 11400000, guid: 7bf87bd93c57d4147b2e21ff3f29eb41, type: 2}
+  attackAction: {fileID: 11400000, guid: 56eeff717dae502419321cc59bc6fa2f, type: 2}
+  shareAction: {fileID: 11400000, guid: 87e76a020180e3440828a4733450b9cd, type: 2}
+  sitAction: {fileID: 11400000, guid: 02e96f07b93021940991ec6f4178b8b3, type: 2}
+  OnFirstMove:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: setDialogueGroup
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 7b7134b6c4c28d542bc4a8150706a78b, type: 2}
+          m_ObjectArgumentAssemblyTypeName: DialogueGroup, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 75e96fe518083ab4a920eb5fb4af8c73, type: 2}
+        m_TargetAssemblyTypeName: MyEvent, Assembly-CSharp
+        m_MethodName: invoke
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  AfterMetNanocell:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: setDialogueGroup
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 4c67abf9fc1732b449bcec58092a0368, type: 2}
+          m_ObjectArgumentAssemblyTypeName: DialogueGroup, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Experiment, Assembly-CSharp
+        m_MethodName: setState
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 094e092c45256f748abf2bdbe0ee5ff4, type: 2}
+          m_ObjectArgumentAssemblyTypeName: NarrativeState, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 75e96fe518083ab4a920eb5fb4af8c73, type: 2}
+        m_TargetAssemblyTypeName: MyEvent, Assembly-CSharp
+        m_MethodName: invoke
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  AfterKill:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: setDialogueGroup
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 1b59bc4f703ef5849837e99486d31985, type: 2}
+          m_ObjectArgumentAssemblyTypeName: DialogueGroup, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Experiment, Assembly-CSharp
+        m_MethodName: setState
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 5ab03d8f1fa80d84188d338a64330529, type: 2}
+          m_ObjectArgumentAssemblyTypeName: NarrativeState, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 75e96fe518083ab4a920eb5fb4af8c73, type: 2}
+        m_TargetAssemblyTypeName: MyEvent, Assembly-CSharp
+        m_MethodName: invoke
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  afterGroupUp:
+    repeatable: 0
+    followingActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: setDialogueGroup
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 052e06633bd8c4c4da8b60347620fb94, type: 2}
+            m_ObjectArgumentAssemblyTypeName: DialogueGroup, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Experiment, Assembly-CSharp
+          m_MethodName: setState
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 5ab03d8f1fa80d84188d338a64330529, type: 2}
+            m_ObjectArgumentAssemblyTypeName: NarrativeState, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 75e96fe518083ab4a920eb5fb4af8c73, type: 2}
+          m_TargetAssemblyTypeName: MyEvent, Assembly-CSharp
+          m_MethodName: invoke
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  afterKilledByNano:
+    repeatable: 0
+    followingActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: setDialogueGroup
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: f6c57100f4d50ab41b246d8ca3d8cb4c, type: 2}
+            m_ObjectArgumentAssemblyTypeName: DialogueGroup, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Experiment, Assembly-CSharp
+          m_MethodName: setState
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 5ab03d8f1fa80d84188d338a64330529, type: 2}
+            m_ObjectArgumentAssemblyTypeName: NarrativeState, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 75e96fe518083ab4a920eb5fb4af8c73, type: 2}
+          m_TargetAssemblyTypeName: MyEvent, Assembly-CSharp
+          m_MethodName: invoke
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  afterSeat:
+    repeatable: 0
+    followingActions:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+          m_MethodName: setDialogueGroup
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 5ad230fc55e9929439b761c74947209f, type: 2}
+            m_ObjectArgumentAssemblyTypeName: DialogueGroup, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Experiment, Assembly-CSharp
+          m_MethodName: setState
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: 5ab03d8f1fa80d84188d338a64330529, type: 2}
+            m_ObjectArgumentAssemblyTypeName: NarrativeState, Assembly-CSharp
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 75e96fe518083ab4a920eb5fb4af8c73, type: 2}
+          m_TargetAssemblyTypeName: MyEvent, Assembly-CSharp
+          m_MethodName: invoke
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!58 &6011000490806921865
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -240,33 +479,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &763280485518171863
-MonoBehaviour:
+--- !u!95 &-3964451061540331907
+Animator:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7569681975398157172}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 0f1fbe422eaaacc47aa86ea07890657b, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Bacteria
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6116d60544808d549b73e9e195793145, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

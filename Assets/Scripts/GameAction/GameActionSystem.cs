@@ -25,12 +25,12 @@ public class GameActionSystem : ScriptableObject
 
     void showTip(PlayerGameAction enabledAction) {
         if(!suppressTip) {
-            showText("Press " + enabledAction.actionBinding + " to " + enabledAction.actionName);
+            if(showText != null) showText("Press " + enabledAction.actionBinding + " to " + enabledAction.actionName);
         }
     }
 
     void hideTip(PlayerGameAction disabledAction) {
-        hideText();
+        if(hideText != null) hideText();
     }
 
     

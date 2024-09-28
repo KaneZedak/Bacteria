@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3717136280886258893}
   - component: {fileID: 4406385958741018254}
   - component: {fileID: 1942008564540485075}
+  - component: {fileID: 6849221647420481280}
   m_Layer: 0
   m_Name: nanobot
   m_TagString: enemy
@@ -156,7 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  m_Sprite: {fileID: -1827403272, guid: d708df721bf1f7b4eab29b4da868c740, type: 3}
   m_Color: {r: 0.9811321, g: 0.0786757, b: 0.0786757, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -183,3 +184,24 @@ MonoBehaviour:
   splitForce: 3.04
   botDamage: 0
   enableReplication: 0
+--- !u!95 &6849221647420481280
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5550404910547758986}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 34bb24bbfac91e64fb550bc3c8de3462, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
