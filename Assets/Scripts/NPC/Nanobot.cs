@@ -25,7 +25,7 @@ public class Nanobot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!enableReplication) return;
+        if(!Experiment.nanoReplication) return;
         countTimer += Time.deltaTime;
         if(countTimer > replicationTime) {
             countTimer -= replicationTime;

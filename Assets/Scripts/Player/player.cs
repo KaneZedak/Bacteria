@@ -34,6 +34,10 @@ public class player : MonoBehaviour
     [SerializeField] private GameObject friendlyTarget = null;
     [SerializeField] private ConditionObject killedNanocell;
     [SerializeField] private ConditionChecker killChecker;
+    [SerializeField] private PlayerGameAction attackAction;
+    [SerializeField] private PlayerGameAction shareAction;
+    [SerializeField] private PlayerGameAction sitAction;
+
 
     public UnityEvent OnInteractWithFriendly;
     public UnityEvent OnFirstMove;
@@ -49,6 +53,10 @@ public class player : MonoBehaviour
         originalMass = rigidbody.mass;
         killChecker.initialize();
         killChecker.subscribe(AfterKill.Invoke);
+
+        attackAction.initialize();
+        shareAction.initialize();
+        sitAction.initialize();
     }
 
     // Update is called once per frame
@@ -57,10 +65,10 @@ public class player : MonoBehaviour
         playerStatusUpdate();
 
         if(Input.GetKeyDown(attackKey)) {
-            if(enemyInRange && target != null) {
-                Destroy(target);
-                target = null;
-                enemyInRange = false;
+            if(attackAction.getStatus() && attackAction.target != null) {
+                Destroy(attackAction.target);
+                attackAction.disableAction();
+                attackAction.target = null;
                 if(killedNanocell) {
                     if(killedNanocell.value != true) killedNanocell.setValue(true);
                 }
@@ -68,10 +76,10 @@ public class player : MonoBehaviour
         }
 
         if(Input.GetKeyDown(shareKey)) {
-            if(friendlyInRange && friendlyTarget != null) {
-                friendlyTarget.GetComponent<FriendlyBacteria>().setFollowObject(this.gameObject);
-                friendlyTarget = null;
-                friendlyInRange = false;
+            if(shareAction.getStatus() && shareAction.target != null) {
+                shareAction.target.GetComponent<FriendlyBacteria>().setFollowObject(this.gameObject);
+                shareAction.disableAction();
+                shareAction.target = null;
                 hydration = hydration / 2;   
             }
         }
@@ -109,22 +117,27 @@ public class player : MonoBehaviour
                 metNanocell = true;
                 AfterMetNanocell.Invoke();
             }
-            enemyInRange = true;
-            target = colObj.gameObject;
+            
+            attackAction.enableAction();
+            attackAction.target = colObj.gameObject;
         }
 
         if(colObj.gameObject.tag == "friendly") {
-            friendlyInRange = true;
-            friendlyTarget = colObj.gameObject;
+            shareAction.enableAction();
+            shareAction.target = colObj.gameObject;
         }
     }
 
 
     void OnTriggerExit2D(Collider2D colObj)
     {
-        if(colObj.gameObject == target) {
-            target = null;
-            enemyInRange = false;
+        if(colObj.gameObject == attackAction.target) {
+            attackAction.target = null;
+            attackAction.disableAction();
+        }
+        if(colObj.gameObject == shareAction.target) {
+            shareAction.target = null;
+            shareAction.disableAction();
         }
     }
 

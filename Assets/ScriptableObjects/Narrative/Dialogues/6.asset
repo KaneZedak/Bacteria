@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f59f9cbdc17dad04aa26cc5a55afab3d, type: 3}
+  m_Name: 6
+  m_EditorClassIdentifier: 
+  dialogues:
+  - speaker: {fileID: 11400000, guid: 6a4d29bf186267847aebe7997ba7d30f, type: 2}
+    dialogueText: "Oh, sir, there\u2019s another bacteria on the plate."
+  - speaker: {fileID: 11400000, guid: 6112e459156e8894485a5ff86789da74, type: 2}
+    dialogueText: This one is nearly dead. It's the last seconds of its life. Unless
+      the  bacteria helps it by sharing some of its own life.
+  - speaker: {fileID: 11400000, guid: 6a4d29bf186267847aebe7997ba7d30f, type: 2}
+    dialogueText: 'It won''t do that. right? Why would it do such thing? '
+  - speaker: {fileID: 11400000, guid: 6112e459156e8894485a5ff86789da74, type: 2}
+    dialogueText: "It might, but it\u2019s better not to. Its health is already low,
+      and there\u2019s  no way to recover it."

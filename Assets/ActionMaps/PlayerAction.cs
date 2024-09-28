@@ -53,6 +53,24 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""share"",
+                    ""type"": ""Button"",
+                    ""id"": ""28adbc01-ce06-454f-9316-8e4e4d34fea1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""sit"",
+                    ""type"": ""Button"",
+                    ""id"": ""5e468e4e-b037-4e81-8e29-9a0a2f536496"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +150,28 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
                     ""action"": ""MouseInteract"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dc1074f2-df57-414d-b061-9ddd81ce9540"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""share"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2a30166f-cea4-43d6-8a0f-6372a41d07ee"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""sit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,6 +183,8 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
         m_Bacteria_move = m_Bacteria.FindAction("move", throwIfNotFound: true);
         m_Bacteria_attack = m_Bacteria.FindAction("attack", throwIfNotFound: true);
         m_Bacteria_MouseInteract = m_Bacteria.FindAction("MouseInteract", throwIfNotFound: true);
+        m_Bacteria_share = m_Bacteria.FindAction("share", throwIfNotFound: true);
+        m_Bacteria_sit = m_Bacteria.FindAction("sit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,6 +249,8 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_Bacteria_move;
     private readonly InputAction m_Bacteria_attack;
     private readonly InputAction m_Bacteria_MouseInteract;
+    private readonly InputAction m_Bacteria_share;
+    private readonly InputAction m_Bacteria_sit;
     public struct BacteriaActions
     {
         private @PlayerAction m_Wrapper;
@@ -214,6 +258,8 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
         public InputAction @move => m_Wrapper.m_Bacteria_move;
         public InputAction @attack => m_Wrapper.m_Bacteria_attack;
         public InputAction @MouseInteract => m_Wrapper.m_Bacteria_MouseInteract;
+        public InputAction @share => m_Wrapper.m_Bacteria_share;
+        public InputAction @sit => m_Wrapper.m_Bacteria_sit;
         public InputActionMap Get() { return m_Wrapper.m_Bacteria; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -232,6 +278,12 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
             @MouseInteract.started += instance.OnMouseInteract;
             @MouseInteract.performed += instance.OnMouseInteract;
             @MouseInteract.canceled += instance.OnMouseInteract;
+            @share.started += instance.OnShare;
+            @share.performed += instance.OnShare;
+            @share.canceled += instance.OnShare;
+            @sit.started += instance.OnSit;
+            @sit.performed += instance.OnSit;
+            @sit.canceled += instance.OnSit;
         }
 
         private void UnregisterCallbacks(IBacteriaActions instance)
@@ -245,6 +297,12 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
             @MouseInteract.started -= instance.OnMouseInteract;
             @MouseInteract.performed -= instance.OnMouseInteract;
             @MouseInteract.canceled -= instance.OnMouseInteract;
+            @share.started -= instance.OnShare;
+            @share.performed -= instance.OnShare;
+            @share.canceled -= instance.OnShare;
+            @sit.started -= instance.OnSit;
+            @sit.performed -= instance.OnSit;
+            @sit.canceled -= instance.OnSit;
         }
 
         public void RemoveCallbacks(IBacteriaActions instance)
@@ -267,5 +325,7 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnMouseInteract(InputAction.CallbackContext context);
+        void OnShare(InputAction.CallbackContext context);
+        void OnSit(InputAction.CallbackContext context);
     }
 }
