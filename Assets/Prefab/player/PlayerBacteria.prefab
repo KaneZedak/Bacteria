@@ -81,6 +81,7 @@ GameObject:
   - component: {fileID: 6011000490806921865}
   - component: {fileID: 3045686825770131809}
   - component: {fileID: 763280485518171863}
+  - component: {fileID: -3964451061540331907}
   m_Layer: 0
   m_Name: PlayerBacteria
   m_TagString: player
@@ -145,7 +146,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 1336201041, guid: d708df721bf1f7b4eab29b4da868c740, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -178,6 +179,31 @@ MonoBehaviour:
   maxHydration: 10
   minScale: 0.7
   maxScale: 1
+  attackKey: g
+  shareKey: h
+  damageForce: 0
+  damageFromBot: 0
+  enemyInRange: 0
+  target: {fileID: 0}
+  friendlyInRange: 0
+  friendlyTarget: {fileID: 0}
+  killedNanocell: {fileID: 0}
+  killChecker: {fileID: 0}
+  attackAction: {fileID: 0}
+  shareAction: {fileID: 0}
+  sitAction: {fileID: 0}
+  OnInteractWithFriendly:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFirstMove:
+    m_PersistentCalls:
+      m_Calls: []
+  AfterMetNanocell:
+    m_PersistentCalls:
+      m_Calls: []
+  AfterKill:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!58 &6011000490806921865
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -270,3 +296,24 @@ MonoBehaviour:
   m_DefaultActionMap: Bacteria
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!95 &-3964451061540331907
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7569681975398157172}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6116d60544808d549b73e9e195793145, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
