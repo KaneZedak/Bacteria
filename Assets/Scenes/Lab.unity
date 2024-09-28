@@ -422,11 +422,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 770079516450492984, guid: 5adea29433454b04a989d1557f8bb01b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.17
+      value: 30.17
       objectReference: {fileID: 0}
     - target: {fileID: 770079516450492984, guid: 5adea29433454b04a989d1557f8bb01b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 27.73
       objectReference: {fileID: 0}
     - target: {fileID: 770079516450492984, guid: 5adea29433454b04a989d1557f8bb01b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -466,7 +466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5550404910547758986, guid: 5adea29433454b04a989d1557f8bb01b, type: 3}
       propertyPath: m_Name
-      value: nanobot
+      value: firstnano
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1942008564540485075, guid: 5adea29433454b04a989d1557f8bb01b, type: 3}
@@ -22313,7 +22313,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1911718947
 Transform:
   m_ObjectHideFlags: 0

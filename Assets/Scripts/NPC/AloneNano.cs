@@ -10,7 +10,6 @@ public class AloneNano : Nanobot
     public ConditionObject killedNanocell;
 
     public void Update() {
-        base.Update();
     }
     void OnTriggerExit2D(Collider2D collider) {
         if(collider.gameObject.tag == "player") {
