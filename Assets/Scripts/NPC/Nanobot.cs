@@ -12,28 +12,49 @@ public class Nanobot : MonoBehaviour
     private int splittingLayer;
     private int defaultLayer;
     public float botDamage;
+    public float moveMinCd;
+    public float moveMaxCd;
+    public float moveForce;
+    private float moveTimer;
+    private float moveTime;
     public bool enableReplication = false;
+
     // Start is called before the first frame update
     void Start()
     {
         defaultLayer = this.gameObject.layer;
         rigidbody = GetComponent<Rigidbody2D>();
         splittingLayer = LayerMask.NameToLayer("SplittingBot");
+        moveTimer = 0;
+        countTimer = 0;
+        moveTime = Random.Range(moveMinCd, moveMaxCd);
         //this.gameObject.layer = splittingLayer;
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
-        if(!Experiment.nanoReplication) return;
-        countTimer += Time.deltaTime;
-        if(countTimer > replicationTime) {
-            countTimer -= replicationTime;
-            replicate();
+        if(Experiment.nanoReplication && enableReplication) {
+            countTimer += Time.deltaTime;
+            if(countTimer > replicationTime) {
+                countTimer -= replicationTime;
+                replicate();
+            }
         }
+
+        moveTimer += Time.deltaTime;
+        if(moveTimer > moveMaxCd) {
+            moveTime = Random.Range(moveMinCd, moveMaxCd);
+            moveTimer = 0;
+            Vector2 direction = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
+            direction = direction.normalized;
+            rigidbody.AddForce(direction * moveForce, ForceMode2D.Impulse);
+        }
+
+        
     }
 
-    private void replicate() {
+    protected void replicate() {
         
         GameObject newNanobot = Instantiate(this.gameObject);
         gameObject.layer = splittingLayer;

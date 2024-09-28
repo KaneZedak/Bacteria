@@ -9,6 +9,7 @@ TagManager:
   - npc
   - enemy
   - friendly
+  - chair
   layers:
   - Default
   - TransparentFX

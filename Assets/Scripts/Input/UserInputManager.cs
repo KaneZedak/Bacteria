@@ -12,6 +12,6 @@ public class UserInputManager : MonoBehaviour
     void Awake() {
         playerInputsActions = new PlayerAction();
         playerInputs = playerInputsActions;
-        playerInputs.Bacteria.MouseInteract.Enable();
+        playerInputs.Bacteria.Enable();
     }
 }
