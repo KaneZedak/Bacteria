@@ -23,8 +23,6 @@ public class player : MonoBehaviour
     private Vector2 currentDirection = new Vector2();
     private Vector3 pos = new Vector3();
 
-    public string attackKey = "g";
-    public string shareKey = "h";
     public float damageForce;
     public float damageFromBot;
 
@@ -39,10 +37,12 @@ public class player : MonoBehaviour
     [SerializeField] private PlayerGameAction sitAction;
 
 
-    public UnityEvent OnInteractWithFriendly;
     public UnityEvent OnFirstMove;
     public UnityEvent AfterMetNanocell;
     public UnityEvent AfterKill;
+    public MyUnityEvent afterGroupUp;
+    public MyUnityEvent afterKilledByNano;
+    public MyUnityEvent afterSeat;
 
     private bool metNanocell = false;
     private bool moved = false;
@@ -66,6 +66,7 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Experiment.gamePaused) return;
         if(!isMounted) playerStatusUpdate();
     }
 
@@ -86,6 +87,7 @@ public class player : MonoBehaviour
             shareAction.disableAction();
             shareAction.target = null;
             hydration = hydration / 2;   
+            afterGroupUp.Invoke();
         }
     }
 
@@ -95,6 +97,7 @@ public class player : MonoBehaviour
             rigidbody.isKinematic = true;
             rigidbody.velocity = new Vector2(0, 0);
             sitAction.target.GetComponent<CHAIR>().mountSeat(this.gameObject);
+            afterSeat.Invoke();
         } else if(isMounted) {
             isMounted = false;
             rigidbody.isKinematic = false;
@@ -121,6 +124,7 @@ public class player : MonoBehaviour
         }
         if(hydration < 0) {
             MyEventSystem.playerDeath();
+            UserInputManager.playerInputs.Disable();
             Destroy(this.gameObject);
         }
     }
@@ -178,6 +182,7 @@ public class player : MonoBehaviour
             Vector2 direction = (selfPos - targetPos).normalized;
             rigidbody.AddForce(damageForce * direction, ForceMode2D.Impulse);
             hydration -= damageFromBot;
+            if(hydration < 0) afterKilledByNano.Invoke();
         }
         /*
         if(collision.collider.gameObject.tag == "enemy" && collision.collider.gameObject.transform.localScale.x < transform.localScale.x) {

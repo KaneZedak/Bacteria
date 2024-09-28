@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f59f9cbdc17dad04aa26cc5a55afab3d, type: 3}
+  m_Name: 9
+  m_EditorClassIdentifier: 
+  dialogues:
+  - speaker: {fileID: 11400000, guid: 6a4d29bf186267847aebe7997ba7d30f, type: 2}
+    dialogueText: "What\u2019s it doing? Is it just sitting there?"
+  - speaker: {fileID: 11400000, guid: 6112e459156e8894485a5ff86789da74, type: 2}
+    dialogueText: "he'll die soon anyway. Maybe he just wants to sit and enjoy the
+      view. Wouldn\u2019t we do the same if we were in its place?"
+  - speaker: {fileID: 11400000, guid: 6a4d29bf186267847aebe7997ba7d30f, type: 2}
+    dialogueText: ...

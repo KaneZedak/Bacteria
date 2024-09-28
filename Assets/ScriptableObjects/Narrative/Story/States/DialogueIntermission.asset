@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c322de47376039849b9df71566d31c59, type: 3}
   m_Name: DialogueIntermission
   m_EditorClassIdentifier: 
+  onEnterEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onLeaveEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  repeatable: 0
+  triggerCount: 0
   dialogueProgress: {fileID: 11400000, guid: 75e96fe518083ab4a920eb5fb4af8c73, type: 2}

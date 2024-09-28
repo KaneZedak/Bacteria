@@ -6,13 +6,22 @@ using UnityEngine.Events;
 public class AloneNano : Nanobot
 {
     public UnityEvent afterSparing;
+    private bool spared = false;
     public ConditionObject killedNanocell;
 
+    public void Update() {
+        base.Update();
+    }
     void OnTriggerExit2D(Collider2D collider) {
         if(collider.gameObject.tag == "player") {
-            if(killedNanocell.value == false) {
+            if(killedNanocell.value == false && spared == false) {
+                spared = true;
                 afterSparing.Invoke();
             }
         }
+    }
+
+    protected void replicate () {
+        return;
     }
 }
