@@ -20,6 +20,7 @@ public class Experiment : MonoBehaviour
     public ConditionObject gameStart;
 
     public NarrativeStateMachine storyStateMachine;
+    public GameActionSystem gameActionSystem;
 
     public void killPlayer() {
         currentBacteria.GetComponent<player>().stillDrainRate = 120;
@@ -39,6 +40,7 @@ public class Experiment : MonoBehaviour
         MyEventSystem.dropletCollected += onDropCollect;
         initializeConditions();
         storyStateMachine.initialize();
+        gameActionSystem.initialize();
     }
     void Start()
     {

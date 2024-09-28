@@ -2809,6 +2809,7 @@ MonoBehaviour:
   conditionList: {fileID: 11400000, guid: 17b91a232dc7beb469b1b36fbc5bd861, type: 2}
   gameStart: {fileID: 11400000, guid: 804f60741653ef044900542b7463aa89, type: 2}
   storyStateMachine: {fileID: 11400000, guid: f68a0a6a3b6c12048932a01859c26b84, type: 2}
+  gameActionSystem: {fileID: 11400000, guid: 8b3d5d033e74b9e4f9807bcfc73baaac, type: 2}
 --- !u!1 &1017505068
 GameObject:
   m_ObjectHideFlags: 0
@@ -4699,7 +4700,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1994602940
 Transform:
   m_ObjectHideFlags: 0
@@ -4994,6 +4995,10 @@ PrefabInstance:
       value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2439149755527637121, guid: 70cffa16d7d39a7479006f2eb44f32dd, type: 3}
+      propertyPath: sitAction
+      value: 
+      objectReference: {fileID: 11400000, guid: 02e96f07b93021940991ec6f4178b8b3, type: 2}
+    - target: {fileID: 2439149755527637121, guid: 70cffa16d7d39a7479006f2eb44f32dd, type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 519420031}
@@ -5006,9 +5011,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 7bf87bd93c57d4147b2e21ff3f29eb41, type: 2}
     - target: {fileID: 2439149755527637121, guid: 70cffa16d7d39a7479006f2eb44f32dd, type: 3}
+      propertyPath: shareAction
+      value: 
+      objectReference: {fileID: 11400000, guid: 87e76a020180e3440828a4733450b9cd, type: 2}
+    - target: {fileID: 2439149755527637121, guid: 70cffa16d7d39a7479006f2eb44f32dd, type: 3}
       propertyPath: test.m_Name
       value: Test
       objectReference: {fileID: 0}
+    - target: {fileID: 2439149755527637121, guid: 70cffa16d7d39a7479006f2eb44f32dd, type: 3}
+      propertyPath: attackAction
+      value: 
+      objectReference: {fileID: 11400000, guid: 56eeff717dae502419321cc59bc6fa2f, type: 2}
     - target: {fileID: 2439149755527637121, guid: 70cffa16d7d39a7479006f2eb44f32dd, type: 3}
       propertyPath: maxHydration
       value: 150
