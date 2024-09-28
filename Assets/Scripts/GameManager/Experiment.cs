@@ -12,6 +12,7 @@ public class Experiment : MonoBehaviour
     public static int totalDropCollected;
     public static int dropCollected;
     public static bool nanoReplication;
+    public static bool gamePaused;
 
     public GameObject player;
     public GameObject playerPrefab;
@@ -35,6 +36,7 @@ public class Experiment : MonoBehaviour
         totalDropCollected = 0;
         dropCollected = 0;
         nanoReplication = false;
+        gamePaused = false;
 
         MyEventSystem.playerDeath += onPlayerDeath;
         MyEventSystem.dropletCollected += onDropCollect;
@@ -81,6 +83,13 @@ public class Experiment : MonoBehaviour
         condition.setValue(value);
     }
 
+    public static void pauseGame() {
+        gamePaused = true;
+    }
+
+    public static void unpauseGame() {
+        gamePaused = false;
+    }
     public void initializeConditions() {
         conditionList.initializeConditions();
     }

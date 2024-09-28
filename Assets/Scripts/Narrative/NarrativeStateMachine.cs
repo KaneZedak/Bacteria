@@ -29,9 +29,11 @@ public class NarrativeStateMachine: ScriptableObject
     }
 
     public void transitionToState(NarrativeState newState) {
-        currentState.OnLeavingState();
-        currentState = newState;
-        currentState.OnEnterState();
+        if(newState.repeatable || newState.triggerCount == 0) {
+            currentState.OnLeavingState();
+            currentState = newState;
+            currentState.OnEnterState();
+        }
     }
     public void nextState() {
         if(stateIndex >= stateList.Length) return;
