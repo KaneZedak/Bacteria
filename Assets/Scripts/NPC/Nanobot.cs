@@ -66,7 +66,6 @@ public class Nanobot : MonoBehaviour
             Vector2 direction = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
             direction = direction.normalized + spreadDirection;
             direction = direction.normalized;
-            spreadDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
             rigidbody.AddForce(direction * moveForce, ForceMode2D.Impulse);
         }
         
@@ -77,19 +76,6 @@ public class Nanobot : MonoBehaviour
         GameObject newNanobot = Instantiate(NanoTemplate, this.gameObject.transform.parent);
         gameObject.layer = splittingLayer;
         newNanobot.layer = splittingLayer;
-
-        Nanobot nanoScript = newNanobot.GetComponent<Nanobot>();
-
-        moveForce += 1f;
-        moveMinCd -= 0.2f;
-        moveMaxCd -= 0.2f;
-        if(moveForce > 8f) moveForce = 8f;
-        if(moveMinCd < 0.5f) moveMinCd = 0.5f;
-        if(moveMaxCd < 1f) moveMaxCd = 1f;
-
-        nanoScript.moveForce = moveForce;
-        nanoScript.moveMinCd = moveMinCd;
-        nanoScript.moveMaxCd = moveMaxCd;
 
         Vector2 direction;
         direction = spreadDirection.normalized;
