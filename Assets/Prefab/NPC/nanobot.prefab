@@ -234,8 +234,8 @@ MonoBehaviour:
   splitForce: 4.01
   botDamage: 5
   moveMinCd: 1
-  moveMaxCd: 5
-  moveForce: 3.02
+  moveMaxCd: 3.16
+  moveForce: 3.9
   enableReplication: 1
   NanoTemplate: {fileID: 5550404910547758986}
 --- !u!95 &6849221647420481280
