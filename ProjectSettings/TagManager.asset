@@ -11,6 +11,7 @@ TagManager:
   - friendly
   - chair
   - followingBacteria
+  - wall
   layers:
   - Default
   - TransparentFX

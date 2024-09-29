@@ -475,7 +475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1942008564540485075, guid: 5adea29433454b04a989d1557f8bb01b, type: 3}
       propertyPath: moveForce
-      value: 2
+      value: 4.93
       objectReference: {fileID: 0}
     - target: {fileID: 1942008564540485075, guid: 5adea29433454b04a989d1557f8bb01b, type: 3}
       propertyPath: moveMaxCd
@@ -1877,7 +1877,7 @@ MonoBehaviour:
   minFollowingVelocity: 2
   followSpeed: 5
   playerVelocity: {x: 0, y: 0}
-  trackingRange: 3.96
+  trackingRange: 3.3
 --- !u!1 &551487690
 GameObject:
   m_ObjectHideFlags: 0
@@ -2038,6 +2038,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3989101209120574081, guid: 254e81a66d3d3984b8019c9bfa3f7a26, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5550404910547758986, guid: 254e81a66d3d3984b8019c9bfa3f7a26, type: 3}
       propertyPath: m_Name
       value: Pillow1
@@ -2119,67 +2123,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91b0e8703eba64f42933ab029fff4a48, type: 3}
---- !u!1001 &571638722
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1440980210829010415, guid: 44a59adb66ad93149ada12497414409f, type: 3}
-      propertyPath: m_Simulated
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3414096032154900640, guid: 44a59adb66ad93149ada12497414409f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.84
-      objectReference: {fileID: 0}
-    - target: {fileID: 3414096032154900640, guid: 44a59adb66ad93149ada12497414409f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -6.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 3414096032154900640, guid: 44a59adb66ad93149ada12497414409f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3414096032154900640, guid: 44a59adb66ad93149ada12497414409f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3414096032154900640, guid: 44a59adb66ad93149ada12497414409f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3414096032154900640, guid: 44a59adb66ad93149ada12497414409f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3414096032154900640, guid: 44a59adb66ad93149ada12497414409f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3414096032154900640, guid: 44a59adb66ad93149ada12497414409f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3414096032154900640, guid: 44a59adb66ad93149ada12497414409f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3414096032154900640, guid: 44a59adb66ad93149ada12497414409f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8802501114917554760, guid: 44a59adb66ad93149ada12497414409f, type: 3}
-      propertyPath: m_Name
-      value: chair
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 44a59adb66ad93149ada12497414409f, type: 3}
 --- !u!1 &571665010
 GameObject:
   m_ObjectHideFlags: 0
@@ -2197,6 +2140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+  m_IsActive: 0
   m_IsActive: 0
 --- !u!224 &571665011
 RectTransform:
@@ -2283,7 +2227,7 @@ Transform:
   m_GameObject: {fileID: 573275717}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.22, y: 28.79, z: 0}
+  m_LocalPosition: {x: -14.54, y: 16.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2323,7 +2267,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 5.62
+  m_Radius: 10.02
 --- !u!114 &573275720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4170,7 +4114,7 @@ GameObject:
   - component: {fileID: 1074144343}
   m_Layer: 0
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19084,6 +19028,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3989101209120574081, guid: 254e81a66d3d3984b8019c9bfa3f7a26, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5550404910547758986, guid: 254e81a66d3d3984b8019c9bfa3f7a26, type: 3}
       propertyPath: m_Name
       value: Pillow1 (1)
@@ -19522,7 +19470,6 @@ RectTransform:
   - {fileID: 396429389}
   - {fileID: 432262704}
   - {fileID: 732739581}
-  - {fileID: 473663780}
   m_Father: {fileID: 1994602940}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -20213,7 +20160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1942008564540485075, guid: 5adea29433454b04a989d1557f8bb01b, type: 3}
       propertyPath: moveForce
-      value: 2
+      value: 5.08
       objectReference: {fileID: 0}
     - target: {fileID: 1942008564540485075, guid: 5adea29433454b04a989d1557f8bb01b, type: 3}
       propertyPath: moveMaxCd
@@ -20425,7 +20372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1942008564540485075, guid: 5adea29433454b04a989d1557f8bb01b, type: 3}
       propertyPath: moveForce
-      value: 2
+      value: 5.13
       objectReference: {fileID: 0}
     - target: {fileID: 1942008564540485075, guid: 5adea29433454b04a989d1557f8bb01b, type: 3}
       propertyPath: moveMaxCd
@@ -20820,6 +20767,10 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2439149755527637121, guid: 70cffa16d7d39a7479006f2eb44f32dd, type: 3}
+      propertyPath: damageFromBot
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2439149755527637121, guid: 70cffa16d7d39a7479006f2eb44f32dd, type: 3}
       propertyPath: AfterKill.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1285441499}
@@ -20941,7 +20892,6 @@ SceneRoots:
   - {fileID: 1295004866}
   - {fileID: 1285441500}
   - {fileID: 573275718}
-  - {fileID: 571638722}
   - {fileID: 344991349}
   - {fileID: 602978490}
   - {fileID: 554236027}

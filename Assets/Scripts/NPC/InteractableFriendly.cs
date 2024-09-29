@@ -11,10 +11,15 @@ public class InteractableFriendly : FriendlyBacteria
     private bool playerEntered = false;
     private GameObject targetChair;
     private bool seated = false;
-
+    private bool chairInRange = false;
+    private PlayerGameAction sitAction;
+    
     void Start() {
         base.Start();
         targetChair = null;
+        chairInRange = false;
+        sitAction = ScriptableObject.CreateInstance<PlayerGameAction>();
+        sitAction.initialize();
         player.playerMounted += onPlayerMounted;
         player.playerDismounted += OnPlayerDismounted;
     }
@@ -34,27 +39,40 @@ public class InteractableFriendly : FriendlyBacteria
             playerEntered = true;
             afterEnter.Invoke();
         }
-        if(collider.gameObject.tag == "chair" && collider.gameObject == targetChair) {
-            collider.gameObject.GetComponent<CHAIR>().mountSeat(this.gameObject);
-            seated = true;
+        if(collider.gameObject.tag == "chair") {
+            sitAction.addTarget(collider.gameObject);
+            if(collider.gameObject == targetChair) mountChair(targetChair);
         }
     }
 
+    void OnTriggerExit2D(Collider2D collider) {
+        if(collider.gameObject.tag == "chair") {
+            sitAction.removeTarget(collider.gameObject);
+        }
+    }
+
+    void mountChair(GameObject selectedChair) {
+        rigidbody.velocity = new Vector2(0, 0);
+        selectedChair.GetComponent<CHAIR>().mountSeat(this.gameObject);
+        seated = true;
+    }
     void onPlayerMounted() {
         GameObject[] chairs;
         chairs = GameObject.FindGameObjectsWithTag("chair");
         foreach(GameObject chair in chairs) {
-            if(!chair.GetComponent<CHAIR>().isVaccant()) {
+            if(chair.GetComponent<CHAIR>().isVaccant()) {
                 targetChair = chair;
                 break;
             }
         }
+        if(sitAction.hasTarget(targetChair)) mountChair(targetChair);
     }
 
     void OnPlayerDismounted() {
         if(seated) {
             seated = false;
         }
+        if(targetChair) targetChair.GetComponent<CHAIR>().unmount();
         targetChair = null;
     }
 

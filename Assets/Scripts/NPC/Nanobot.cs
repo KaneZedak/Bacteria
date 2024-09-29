@@ -64,6 +64,7 @@ public class Nanobot : MonoBehaviour
             Vector2 direction = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
             direction = direction.normalized + spreadDirection;
             direction = direction.normalized;
+            spreadDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
             rigidbody.AddForce(direction * moveForce, ForceMode2D.Impulse);
         }
         
@@ -74,6 +75,19 @@ public class Nanobot : MonoBehaviour
         GameObject newNanobot = Instantiate(NanoTemplate, this.gameObject.transform.parent);
         gameObject.layer = splittingLayer;
         newNanobot.layer = splittingLayer;
+
+        Nanobot nanoScript = newNanobot.GetComponent<Nanobot>();
+
+        moveForce += 1f;
+        moveMinCd -= 0.2f;
+        moveMaxCd -= 0.2f;
+        if(moveForce > 8f) moveForce = 8f;
+        if(moveMinCd < 0.5f) moveMinCd = 0.5f;
+        if(moveMaxCd < 1f) moveMaxCd = 1f;
+
+        nanoScript.moveForce = moveForce;
+        nanoScript.moveMinCd = moveMinCd;
+        nanoScript.moveMaxCd = moveMaxCd;
 
         Vector2 direction;
         direction = spreadDirection.normalized;
@@ -91,12 +105,10 @@ public class Nanobot : MonoBehaviour
             Vector2 selfPos = new Vector2(transform.position.x, transform.position.y);
 
             if(collider.gameObject.GetComponent<Nanobot>().enabled == false) {
-                spreadDirection += 10 * (selfPos - nanoPos).normalized;
-            } 
-            /*
-            else {
-                spreadDirection += (selfPos - nanoPos).normalized * 2;
-            }*/
+                spreadDirection += 20 * (selfPos - nanoPos).normalized;
+            } else {
+                spreadDirection += (selfPos - nanoPos).normalized * 4;
+            }
             proxmityNanoCount++;
             if(proxmityNanoCount > 7) {
                 rigidbody.isKinematic = true;
@@ -106,6 +118,11 @@ public class Nanobot : MonoBehaviour
         }
     }
 
+    public void OnCollisionEnter2D(Collision2D collision) {
+        if(collision.collider.tag == "wall") {
+            spreadDirection = -spreadDirection;
+        }
+    }
     public void OnTriggerExit2D(Collider2D collider) {
         if(collider.tag == "enemy") {
             proxmityNanoCount--;
