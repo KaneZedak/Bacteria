@@ -9,27 +9,32 @@ public class FriendlyBacteria : MonoBehaviour
     public float followRange;
     public float maxRange;
     public float stretchForce;
+    protected Vector2 targetPos;
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         if(followingObject != null)  {
-            Vector2 targetPos = new Vector2(followingObject.transform.position.x, followingObject.transform.position.y);
-            Vector2 selfPos = new Vector2(transform.position.x, transform.position.y);
-            float distance = (targetPos - selfPos).magnitude;
-            Vector2 direction = (targetPos - selfPos).normalized;
-            if(distance > followRange) {
-                rigidbody.AddForce(direction * Mathf.Lerp(0, stretchForce, (distance - followRange) / maxRange));
-            }
+            targetPos = new Vector2(followingObject.transform.position.x, followingObject.transform.position.y);
         }
+        moveTowardTargetPos();
     }
 
     public void setFollowObject(GameObject gameObj) {
         followingObject = gameObj;
+    }
+
+    public void moveTowardTargetPos() {
+        Vector2 selfPos = new Vector2(transform.position.x, transform.position.y);
+        float distance = (targetPos - selfPos).magnitude;
+        Vector2 direction = (targetPos - selfPos).normalized;
+        if(distance > followRange) {
+            rigidbody.AddForce(direction * Mathf.Lerp(0, stretchForce, (distance - followRange) / maxRange));
+        }
     }
 }

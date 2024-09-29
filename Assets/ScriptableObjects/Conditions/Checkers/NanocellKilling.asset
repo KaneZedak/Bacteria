@@ -15,4 +15,6 @@ MonoBehaviour:
   conditions:
   - conditionObj: {fileID: 11400000, guid: 758a4d58e88e44541a9aa6ea46180f3e, type: 2}
     value: 1
+  - conditionObj: {fileID: 11400000, guid: e0a3f18c7eede9341bbea98ace0b91cc, type: 2}
+    value: 0
   repeatedTrigger: 0

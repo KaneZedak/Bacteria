@@ -16,6 +16,7 @@ public class CHAIR : MonoBehaviour
 
     public void mountSeat(GameObject target) {
         target.transform.position = seat.transform.position;
+        target.transform.rotation = seat.transform.rotation;
         occupied = true;
     }
 

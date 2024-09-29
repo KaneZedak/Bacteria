@@ -15,9 +15,11 @@ public class PlayerGameAction : ScriptableObject
     public string actionName;
     public string actionBinding;
     private bool isEnabled;
-    
+    private bool active;
+
     public void initialize() {
         isEnabled = false;
+        active = true;
     }
 
     public bool getStatus() {
@@ -32,5 +34,13 @@ public class PlayerGameAction : ScriptableObject
     public void disableAction() {
         isEnabled = false;
         onDisable(this);
+    }
+
+    public void deactivateAction() {
+        active = false;
+    }
+
+    public bool isActive() {
+        return active;
     }
 }

@@ -10,6 +10,7 @@ TagManager:
   - enemy
   - friendly
   - chair
+  - followingBacteria
   layers:
   - Default
   - TransparentFX
