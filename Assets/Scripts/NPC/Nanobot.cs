@@ -18,6 +18,7 @@ public class Nanobot : MonoBehaviour
     private float moveTimer;
     private float moveTime;
     public bool enableReplication = false;
+    public static bool enableMoving = false;
     public GameObject NanoTemplate;
     private Vector2 spreadDirection;
     private Animator animator;
@@ -57,6 +58,7 @@ public class Nanobot : MonoBehaviour
             }
         }
         
+        if(!Experiment.nanoReplication) return;
         moveTimer += Time.deltaTime;
         if(moveTimer > moveMaxCd) {
             moveTime = Random.Range(moveMinCd, moveMaxCd);
@@ -109,6 +111,7 @@ public class Nanobot : MonoBehaviour
             } else {
                 spreadDirection += (selfPos - nanoPos).normalized * 4;
             }
+
             proxmityNanoCount++;
             if(proxmityNanoCount > 7) {
                 rigidbody.isKinematic = true;
@@ -123,6 +126,7 @@ public class Nanobot : MonoBehaviour
             spreadDirection = -spreadDirection;
         }
     }
+
     public void OnTriggerExit2D(Collider2D collider) {
         if(collider.tag == "enemy") {
             proxmityNanoCount--;
