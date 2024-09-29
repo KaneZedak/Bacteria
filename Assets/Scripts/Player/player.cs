@@ -6,6 +6,10 @@ using UnityEngine.Events;
 
 public class player : MonoBehaviour
 {
+    public delegate void Handler();
+    public static Handler playerMounted;
+    public static Handler playerDismounted;
+
     public Camera mainCamera;
     public float dragForce;
     public float stoppingSpeed;
@@ -16,7 +20,8 @@ public class player : MonoBehaviour
     public float maxHydration;
     public float minScale;
     public float maxScale;
-    
+    public int attackEnergy;
+
     float proportion;
     private float originalMass;
     Rigidbody2D rigidbody;
@@ -47,6 +52,7 @@ public class player : MonoBehaviour
     private bool metNanocell = false;
     private bool moved = false;
     private bool isMounted = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +64,7 @@ public class player : MonoBehaviour
         attackAction.initialize();
         shareAction.initialize();
         sitAction.initialize();
+
         UserInputManager.playerInputs.Bacteria.sit.performed += sitActionFun;
         UserInputManager.playerInputs.Bacteria.attack.performed += attackActionFun;
         UserInputManager.playerInputs.Bacteria.share.performed += shareActionFun;
@@ -71,19 +78,20 @@ public class player : MonoBehaviour
     }
 
     void attackActionFun(InputAction.CallbackContext context) {
-        if(attackAction.getStatus() && attackAction.target != null) {
+        if(attackAction.isActive() && attackAction.getStatus() && attackAction.target != null) {
+            killedNanocell.setValue(true);
             Destroy(attackAction.target);
             attackAction.disableAction();
             attackAction.target = null;
-            if(killedNanocell) {
-                if(killedNanocell.value != true) killedNanocell.setValue(true);
-            }
+            attackEnergy--;
+            if(attackEnergy == 0) attackAction.deactivateAction();
         }
     }
 
     void shareActionFun(InputAction.CallbackContext context) {
         if(shareAction.getStatus() && shareAction.target != null) {
-            shareAction.target.GetComponent<FriendlyBacteria>().setFollowObject(this.gameObject);
+            shareAction.target.GetComponent<InteractableFriendly>().setFollowObject(this.gameObject);
+            shareAction.target.tag = "followingBacteria";
             shareAction.disableAction();
             shareAction.target = null;
             hydration = hydration / 2;   
@@ -96,12 +104,15 @@ public class player : MonoBehaviour
             isMounted = true;
             rigidbody.isKinematic = true;
             rigidbody.velocity = new Vector2(0, 0);
+            rigidbody.angularVelocity = 0;
             sitAction.target.GetComponent<CHAIR>().mountSeat(this.gameObject);
+            if(playerMounted != null) playerMounted();
             afterSeat.Invoke();
         } else if(isMounted) {
             isMounted = false;
             rigidbody.isKinematic = false;
             sitAction.target.GetComponent<CHAIR>().unmount();
+            if(playerDismounted != null) playerDismounted();
         }
     }
     void playerStatusUpdate() {
@@ -125,6 +136,7 @@ public class player : MonoBehaviour
         if(hydration < 0) {
             MyEventSystem.playerDeath();
             UserInputManager.playerInputs.Disable();
+            afterKilledByNano.Invoke();
             Destroy(this.gameObject);
         }
     }
@@ -182,7 +194,7 @@ public class player : MonoBehaviour
             Vector2 direction = (selfPos - targetPos).normalized;
             rigidbody.AddForce(damageForce * direction, ForceMode2D.Impulse);
             hydration -= damageFromBot;
-            if(hydration < 0) afterKilledByNano.Invoke();
+            
         }
         /*
         if(collision.collider.gameObject.tag == "enemy" && collision.collider.gameObject.transform.localScale.x < transform.localScale.x) {

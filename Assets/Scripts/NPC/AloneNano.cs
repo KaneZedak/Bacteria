@@ -6,15 +6,15 @@ using UnityEngine.Events;
 public class AloneNano : Nanobot
 {
     public UnityEvent afterSparing;
-    private bool spared = false;
+    public ConditionObject sparedNanocell;
     public ConditionObject killedNanocell;
 
     public void Update() {
     }
     void OnTriggerExit2D(Collider2D collider) {
         if(collider.gameObject.tag == "player") {
-            if(killedNanocell.value == false && spared == false) {
-                spared = true;
+            if(killedNanocell.value == false && sparedNanocell.value == false) {
+                sparedNanocell.setValue(true);
                 afterSparing.Invoke();
             }
         }
