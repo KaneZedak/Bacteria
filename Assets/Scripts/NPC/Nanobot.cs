@@ -18,6 +18,7 @@ public class Nanobot : MonoBehaviour
     private float moveTimer;
     private float moveTime;
     public bool enableReplication = false;
+    public static bool enableMoving = false;
     public GameObject NanoTemplate;
     private Vector2 spreadDirection;
     private Animator animator;
@@ -57,6 +58,7 @@ public class Nanobot : MonoBehaviour
             }
         }
         
+        if(!Experiment.nanoReplication) return;
         moveTimer += Time.deltaTime;
         if(moveTimer > moveMaxCd) {
             moveTime = Random.Range(moveMinCd, moveMaxCd);
@@ -91,18 +93,23 @@ public class Nanobot : MonoBehaviour
             Vector2 selfPos = new Vector2(transform.position.x, transform.position.y);
 
             if(collider.gameObject.GetComponent<Nanobot>().enabled == false) {
-                spreadDirection += 10 * (selfPos - nanoPos).normalized;
-            } 
-            /*
-            else {
-                spreadDirection += (selfPos - nanoPos).normalized * 2;
-            }*/
+                spreadDirection += 20 * (selfPos - nanoPos).normalized;
+            } else {
+                spreadDirection += (selfPos - nanoPos).normalized * 4;
+            }
+
             proxmityNanoCount++;
             if(proxmityNanoCount > 7) {
                 rigidbody.isKinematic = true;
                 rigidbody.velocity = new Vector2(0, 0);
                 GetComponent<Nanobot>().enabled = false;
             }
+        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision) {
+        if(collision.collider.tag == "wall") {
+            spreadDirection = -spreadDirection;
         }
     }
 

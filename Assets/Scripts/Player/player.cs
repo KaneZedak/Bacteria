@@ -87,7 +87,7 @@ public class player : MonoBehaviour
             attackCountTimer -= Time.deltaTime;
         }
 
-        hydration -= botProximityCount * Time.deltaTime * 1;
+        if(!Experiment.gamePaused) hydration -= botProximityCount * Time.deltaTime * 1;
     }
 
     void attackActionFun(InputAction.CallbackContext context) {
@@ -141,7 +141,6 @@ public class player : MonoBehaviour
         if(rigidbody.velocity.magnitude > maxSpeed) {
             rigidbody.velocity = rigidbody.velocity.normalized * maxSpeed;
         }
-
         if(!moved && rigidbody.velocity.magnitude > 2) {
             moved = true;
             OnFirstMove.Invoke();
