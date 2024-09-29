@@ -20,7 +20,9 @@ public class player : MonoBehaviour
     public float maxHydration;
     public float minScale;
     public float maxScale;
-    public int attackEnergy;
+
+    public float attackCD;
+    public float attackCountTimer;
 
     float proportion;
     private float originalMass;
@@ -52,7 +54,7 @@ public class player : MonoBehaviour
     private bool metNanocell = false;
     private bool moved = false;
     private bool isMounted = false;
-
+    private int botProximityCount = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,10 +66,12 @@ public class player : MonoBehaviour
         attackAction.initialize();
         shareAction.initialize();
         sitAction.initialize();
-
+    
         UserInputManager.playerInputs.Bacteria.sit.performed += sitActionFun;
         UserInputManager.playerInputs.Bacteria.attack.performed += attackActionFun;
         UserInputManager.playerInputs.Bacteria.share.performed += shareActionFun;
+
+        attackCountTimer = 0;
     }
 
     // Update is called once per frame
@@ -75,6 +79,15 @@ public class player : MonoBehaviour
     {
         if(Experiment.gamePaused) return;
         if(!isMounted) playerStatusUpdate();
+        
+        if(attackCountTimer <= 0) {
+            attackAction.activateAction();
+            attackCountTimer = 0;
+        } else {
+            attackCountTimer -= Time.deltaTime;
+        }
+
+        hydration -= botProximityCount * Time.deltaTime * 1;
     }
 
     void attackActionFun(InputAction.CallbackContext context) {
@@ -83,8 +96,8 @@ public class player : MonoBehaviour
             Destroy(attackAction.target);
             attackAction.disableAction();
             attackAction.target = null;
-            attackEnergy--;
-            if(attackEnergy == 0) attackAction.deactivateAction();
+            attackCountTimer = attackCD;
+            attackAction.deactivateAction();
         }
     }
 
@@ -148,6 +161,7 @@ public class player : MonoBehaviour
                 AfterMetNanocell.Invoke();
             }
             
+            botProximityCount++;
             attackAction.enableAction();
             attackAction.target = colObj.gameObject;
         }
@@ -166,6 +180,9 @@ public class player : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D colObj)
     {
+        if(colObj.gameObject.tag == "enemy") {
+            botProximityCount--;
+        }
         if(colObj.gameObject == attackAction.target) {
             attackAction.target = null;
             attackAction.disableAction();
