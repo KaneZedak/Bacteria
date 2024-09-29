@@ -20,6 +20,7 @@ public class Nanobot : MonoBehaviour
     public bool enableReplication = false;
     public GameObject NanoTemplate;
     private Vector2 spreadDirection;
+    private Animator animator;
     private int proxmityNanoCount = 0;
 
     // Start is called before the first frame update
@@ -27,14 +28,24 @@ public class Nanobot : MonoBehaviour
     {
         defaultLayer = this.gameObject.layer;
         rigidbody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         splittingLayer = LayerMask.NameToLayer("SplittingBot");
         moveTimer = 0;
         countTimer = 0;
         moveTime = Random.Range(moveMinCd, moveMaxCd);
         spreadDirection = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2)).normalized;
+        animator.enabled = false;
         //this.gameObject.layer = splittingLayer;
     }
 
+    void OnBecameVisible()
+    {
+        animator.enabled = true;
+    }
+    void OnBecameInvisible()
+    {
+        animator.enabled = false;
+    }
     // Update is called once per frame
     protected void Update()
     {
@@ -51,7 +62,7 @@ public class Nanobot : MonoBehaviour
             moveTime = Random.Range(moveMinCd, moveMaxCd);
             moveTimer = 0;
             Vector2 direction = new Vector2(Random.Range(-2, 2), Random.Range(-2, 2));
-            direction += spreadDirection;
+            direction = direction.normalized + spreadDirection;
             direction = direction.normalized;
             rigidbody.AddForce(direction * moveForce, ForceMode2D.Impulse);
         }
@@ -81,11 +92,17 @@ public class Nanobot : MonoBehaviour
 
             if(collider.gameObject.GetComponent<Nanobot>().enabled == false) {
                 spreadDirection += 10 * (selfPos - nanoPos).normalized;
-            } else {
+            } 
+            /*
+            else {
                 spreadDirection += (selfPos - nanoPos).normalized * 2;
-            }
+            }*/
             proxmityNanoCount++;
-            if(proxmityNanoCount > 7) GetComponent<Nanobot>().enabled = false;
+            if(proxmityNanoCount > 7) {
+                rigidbody.isKinematic = true;
+                rigidbody.velocity = new Vector2(0, 0);
+                GetComponent<Nanobot>().enabled = false;
+            }
         }
     }
 

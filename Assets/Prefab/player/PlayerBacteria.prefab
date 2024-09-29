@@ -178,6 +178,8 @@ MonoBehaviour:
   maxHydration: 150
   minScale: 0.3
   maxScale: 1
+  attackCD: 0.52
+  attackCountTimer: 0
   damageForce: 13.58
   damageFromBot: 0
   enemyInRange: 0

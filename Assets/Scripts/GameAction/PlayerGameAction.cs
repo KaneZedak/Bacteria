@@ -40,6 +40,10 @@ public class PlayerGameAction : ScriptableObject
         active = false;
     }
 
+    public void activateAction() {
+        active = true;
+    }
+
     public bool isActive() {
         return active;
     }
