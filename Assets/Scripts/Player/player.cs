@@ -53,7 +53,7 @@ public class player : MonoBehaviour
 
     private bool metNanocell = false;
     private bool moved = false;
-    private GameObject currentChair;
+    private bool isMounted = false;
     private int botProximityCount = 0;
     // Start is called before the first frame update
     void Start()
@@ -72,14 +72,13 @@ public class player : MonoBehaviour
         UserInputManager.playerInputs.Bacteria.share.performed += shareActionFun;
 
         attackCountTimer = 0;
-        currentChair = null;
     }
 
     // Update is called once per frame
     void Update()
     {
         if(Experiment.gamePaused) return;
-        if(currentChair == null) playerStatusUpdate();
+        if(!isMounted) playerStatusUpdate();
         
         if(attackCountTimer <= 0) {
             attackAction.activateAction();
@@ -92,41 +91,41 @@ public class player : MonoBehaviour
     }
 
     void attackActionFun(InputAction.CallbackContext context) {
-        if(attackAction.isActive() && attackAction.getStatus() && attackAction.getTarget() != null) {
-            GameObject enemyTarget = attackAction.getTarget();
-            attackAction.removeTarget(enemyTarget);
+        if(attackAction.isActive() && attackAction.getStatus() && attackAction.target != null) {
             killedNanocell.setValue(true);
-            Destroy(enemyTarget);
+            Destroy(attackAction.target);
+            attackAction.disableAction();
+            attackAction.target = null;
             attackCountTimer = attackCD;
             attackAction.deactivateAction();
         }
     }
 
     void shareActionFun(InputAction.CallbackContext context) {
-        if(shareAction.getStatus() && shareAction.getTarget() != null) {
-            GameObject friendlyTarget = shareAction.getTarget();
-            friendlyTarget.GetComponent<InteractableFriendly>().setFollowObject(this.gameObject);
-            friendlyTarget.tag = "followingBacteria";
-            shareAction.removeTarget(friendlyTarget);
+        if(shareAction.getStatus() && shareAction.target != null) {
+            shareAction.target.GetComponent<InteractableFriendly>().setFollowObject(this.gameObject);
+            shareAction.target.tag = "followingBacteria";
+            shareAction.disableAction();
+            shareAction.target = null;
             hydration = hydration / 2;   
             afterGroupUp.Invoke();
         }
     }
 
     void sitActionFun(InputAction.CallbackContext context) {
-        if(currentChair == null && sitAction.getTarget() && sitAction.getStatus()) {
-            currentChair = sitAction.getTarget();
+        if(!isMounted && sitAction.target && sitAction.getStatus()) {
+            isMounted = true;
             rigidbody.isKinematic = true;
             rigidbody.velocity = new Vector2(0, 0);
             rigidbody.angularVelocity = 0;
-            currentChair.GetComponent<CHAIR>().mountSeat(this.gameObject);
+            sitAction.target.GetComponent<CHAIR>().mountSeat(this.gameObject);
             if(playerMounted != null) playerMounted();
             afterSeat.Invoke();
-        } else if(currentChair) {
+        } else if(isMounted) {
+            isMounted = false;
             rigidbody.isKinematic = false;
-            currentChair.GetComponent<CHAIR>().unmount();
+            sitAction.target.GetComponent<CHAIR>().unmount();
             if(playerDismounted != null) playerDismounted();
-            currentChair = null;
         }
     }
     void playerStatusUpdate() {
@@ -164,15 +163,17 @@ public class player : MonoBehaviour
             
             botProximityCount++;
             attackAction.enableAction();
-            attackAction.addTarget(colObj.gameObject);
+            attackAction.target = colObj.gameObject;
         }
 
         if(colObj.gameObject.tag == "friendly") {
-            shareAction.addTarget(colObj.gameObject);
+            shareAction.enableAction();
+            shareAction.target = colObj.gameObject;
         }
 
         if(colObj.gameObject.tag == "chair") {
-            sitAction.addTarget(colObj.gameObject);
+            sitAction.enableAction();
+            sitAction.target = colObj.gameObject;
         }
     }
 
@@ -180,15 +181,19 @@ public class player : MonoBehaviour
     void OnTriggerExit2D(Collider2D colObj)
     {
         if(colObj.gameObject.tag == "enemy") {
-            attackAction.removeTarget(colObj.gameObject);
             botProximityCount--;
         }
-        if(colObj.gameObject.tag == "friendly") {
-            shareAction.removeTarget(colObj.gameObject);
+        if(colObj.gameObject == attackAction.target) {
+            attackAction.target = null;
+            attackAction.disableAction();
         }
-
+        if(colObj.gameObject == shareAction.target) {
+            shareAction.target = null;
+            shareAction.disableAction();
+        }
         if(colObj.gameObject.tag == "chair") {
-            sitAction.removeTarget(colObj.gameObject);
+            sitAction.disableAction();
+            sitAction.target = null;
         }
     }
 
@@ -206,6 +211,7 @@ public class player : MonoBehaviour
             Vector2 direction = (selfPos - targetPos).normalized;
             rigidbody.AddForce(damageForce * direction, ForceMode2D.Impulse);
             hydration -= damageFromBot;
+            
         }
         /*
         if(collision.collider.gameObject.tag == "enemy" && collision.collider.gameObject.transform.localScale.x < transform.localScale.x) {

@@ -12,7 +12,7 @@ public class GameActionSystem : ScriptableObject
     public static DisableHandler hideText;
 
     public PlayerGameAction[] actionList;
-    public static bool suppressTip = false;
+    public bool suppressTip = false;
 
     public void initialize() {
         foreach(PlayerGameAction gameAction in actionList) {
