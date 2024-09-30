@@ -27,6 +27,7 @@ public class player : MonoBehaviour
     float proportion;
     private float originalMass;
     Rigidbody2D rigidbody;
+    Animator animator;
     private Vector2 currentDirection = new Vector2();
     private Vector3 pos = new Vector3();
 
@@ -58,6 +59,7 @@ public class player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
         originalMass = rigidbody.mass;
         killChecker.initialize();
@@ -77,6 +79,7 @@ public class player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(hydration <= 0) return;
         if(Experiment.gamePaused) return;
         if(!isMounted) playerStatusUpdate();
         
@@ -87,7 +90,7 @@ public class player : MonoBehaviour
             attackCountTimer -= Time.deltaTime;
         }
 
-        if(!Experiment.gamePaused) hydration -= botProximityCount * Time.deltaTime * 1;
+        //if(!Experiment.gamePaused) hydration -= botProximityCount * Time.deltaTime * 1;
     }
 
     void attackActionFun(InputAction.CallbackContext context) {
@@ -146,10 +149,11 @@ public class player : MonoBehaviour
             OnFirstMove.Invoke();
         }
         if(hydration < 0) {
+            hydration = 0;
             MyEventSystem.playerDeath();
             UserInputManager.playerInputs.Disable();
             afterKilledByNano.Invoke();
-            Destroy(this.gameObject);
+            animator.SetBool("Death", true);
         }
     }
     void OnTriggerEnter2D(Collider2D colObj)
