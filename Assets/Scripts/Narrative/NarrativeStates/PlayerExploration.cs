@@ -8,8 +8,12 @@ using UnityEngine.InputSystem;
 public class PlayerExploration : NarrativeState
 {
     public ConditionObject killedNanocell;
+    public PlayerGameAction basicMove;
 
     public override void OnEnterState() {
+        if(basicMove.isActive()) {
+            basicMove.enableAction();
+        }
         DialogueManager.setAutomaticProgression(true);
     }
 
