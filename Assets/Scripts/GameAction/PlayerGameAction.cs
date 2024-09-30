@@ -21,6 +21,7 @@ public class PlayerGameAction : ScriptableObject
     public void initialize() {
         isEnabled = false;
         active = true;
+        targets = new List<GameObject>();
     }
 
     public bool getStatus() {
@@ -29,12 +30,12 @@ public class PlayerGameAction : ScriptableObject
 
     public void enableAction() {
         isEnabled = true;
-        onEnable(this);
+        if(onEnable != null) onEnable(this);
     }
 
     public void disableAction() {
         isEnabled = false;
-        onDisable(this);
+        if(onDisable != null) onDisable(this);
     }
 
     public void deactivateAction() {

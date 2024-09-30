@@ -29,7 +29,7 @@ public class CHAIR : MonoBehaviour
     }
 
     public bool isVaccant() {
-        return occupied;
+        return !occupied;
     }
     public Vector3 getSeatPosition() {
         return seat.transform.position;

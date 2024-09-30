@@ -56,6 +56,7 @@ public class player : MonoBehaviour
     private bool moved = false;
     private GameObject mountedChair;
     private int botProximityCount = 0;
+    private bool playerDead = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -73,14 +74,25 @@ public class player : MonoBehaviour
         UserInputManager.playerInputs.Bacteria.attack.performed += attackActionFun;
         UserInputManager.playerInputs.Bacteria.share.performed += shareActionFun;
 
-        mountedChair = null;
+        playerDead = false;
+        mountedChair = null;   
         attackCountTimer = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(hydration <= 0) return;
+        if(hydration < 0 && !playerDead) {
+            playerDead = true;
+            hydration = 0;
+            animator.SetBool("Death", true);
+            MyEventSystem.playerDeath();
+            UserInputManager.playerInputs.Disable();
+            afterKilledByNano.Invoke();
+        }
+
+        if(playerDead) return;
+
         if(Experiment.gamePaused) return;
         if(mountedChair == null) playerStatusUpdate();
         
@@ -130,6 +142,7 @@ public class player : MonoBehaviour
         } else if(mountedChair != null) {
             rigidbody.isKinematic = false;
             mountedChair.GetComponent<CHAIR>().unmount();
+            mountedChair = null;
             if(playerDismounted != null) playerDismounted();
         }
     }
@@ -146,17 +159,11 @@ public class player : MonoBehaviour
         if(rigidbody.velocity.magnitude > maxSpeed) {
             rigidbody.velocity = rigidbody.velocity.normalized * maxSpeed;
         }
-        if(!moved && rigidbody.velocity.magnitude > 2) {
+        if(!moved && rigidbody.velocity.magnitude > 1) {
             moved = true;
             OnFirstMove.Invoke();
         }
-        if(hydration < 0) {
-            hydration = 0;
-            MyEventSystem.playerDeath();
-            UserInputManager.playerInputs.Disable();
-            afterKilledByNano.Invoke();
-            animator.SetBool("Death", true);
-        }
+
     }
     void OnTriggerEnter2D(Collider2D colObj)
     {
@@ -211,7 +218,7 @@ public class player : MonoBehaviour
             Vector2 direction = (selfPos - targetPos).normalized;
             rigidbody.AddForce(damageForce * direction, ForceMode2D.Impulse);
             hydration -= damageFromBot;
-            
+            if(hydration < 0) hydration = 0;
         }
         /*
         if(collision.collider.gameObject.tag == "enemy" && collision.collider.gameObject.transform.localScale.x < transform.localScale.x) {
