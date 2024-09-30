@@ -16,5 +16,5 @@ MonoBehaviour:
   - speaker: {fileID: 11400000, guid: 6a4d29bf186267847aebe7997ba7d30f, type: 2}
     dialogueText: Oh, it has encountered a nano-cell. It might want to attack.
   - speaker: {fileID: 11400000, guid: 6112e459156e8894485a5ff86789da74, type: 2}
-    dialogueText: It's better not to. It only has three attack energy left; it should
-      save it.
+    dialogueText: It's better not to. Once every attack it needs to wait for a while
+      to recharge its energy.

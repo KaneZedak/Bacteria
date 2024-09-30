@@ -15,6 +15,7 @@ public class RollingText : MonoBehaviour
         tmpText = GetComponent<TMP_Text>();
         DialogueManager.showText += displayRollingText;
         coroutine = printText(waitingTime);
+        textFinishDisplaying.invoke();
     }
 
     public void displayRollingText(string text) {

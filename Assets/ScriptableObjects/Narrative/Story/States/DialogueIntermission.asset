@@ -21,3 +21,4 @@ MonoBehaviour:
   repeatable: 0
   triggerCount: 0
   dialogueProgress: {fileID: 11400000, guid: 75e96fe518083ab4a920eb5fb4af8c73, type: 2}
+  textFinished: {fileID: 11400000, guid: f31aa8d8c9cdc02428bf5c950e006ed0, type: 2}

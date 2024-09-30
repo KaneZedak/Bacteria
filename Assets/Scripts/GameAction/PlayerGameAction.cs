@@ -40,10 +40,12 @@ public class PlayerGameAction : ScriptableObject
 
     public void deactivateAction() {
         active = false;
+        if(isEnabled) disableAction();
     }
 
     public void activateAction() {
         active = true;
+        if(isEnabled) enableAction();
     }
 
     public bool isActive() {
