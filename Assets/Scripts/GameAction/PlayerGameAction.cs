@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerGameAction : ScriptableObject
 {
     public GameObject target;
+    public List<GameObject> targets;
     public delegate void callback(PlayerGameAction actionA);
 
     public callback onEnable;
@@ -46,5 +47,26 @@ public class PlayerGameAction : ScriptableObject
 
     public bool isActive() {
         return active;
+    }
+
+    public void addTarget(GameObject tar) {
+        enableAction();
+        targets.Add(tar);
+    }
+
+    public void removeTarget(GameObject tar) {
+        targets.Remove(tar);
+        if(targets.Count <= 0) {
+            disableAction();
+        }
+    }
+
+    public bool hasTarget(GameObject tar) {
+        return targets.Contains(tar);
+    }
+
+    public GameObject getTarget() {
+        if(targets.Count > 0) return targets[0];
+        return null;
     }
 }
