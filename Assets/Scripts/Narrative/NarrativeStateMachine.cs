@@ -14,6 +14,7 @@ public class NarrativeStateMachine: ScriptableObject
     
     public void initialize() {
         foreach(NarrativeState state in stateList) {
+            state.initialize();
             state.setCallback(nextState);
         }
         stateCompleted.subscribe(nextState);

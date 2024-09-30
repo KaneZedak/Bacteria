@@ -22,14 +22,16 @@ public class Nanobot : MonoBehaviour
     public GameObject NanoTemplate;
     private Vector2 spreadDirection;
     private Animator animator;
+    private AudioSource audio;
     private int proxmityNanoCount = 0;
-
+    private bool onScreen = false;
     // Start is called before the first frame update
     void Start()
     {
         defaultLayer = this.gameObject.layer;
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audio = GetComponent<AudioSource>();
         splittingLayer = LayerMask.NameToLayer("SplittingBot");
         moveTimer = 0;
         countTimer = 0;
@@ -42,10 +44,12 @@ public class Nanobot : MonoBehaviour
     void OnBecameVisible()
     {
         animator.enabled = true;
+        onScreen = true;
     }
     void OnBecameInvisible()
     {
         animator.enabled = false;
+        onScreen = false;
     }
     // Update is called once per frame
     protected void Update()
@@ -72,7 +76,7 @@ public class Nanobot : MonoBehaviour
     }
 
     protected void replicate() {
-        
+        if(onScreen) GetComponent<AudioSource>().Play();
         GameObject newNanobot = Instantiate(NanoTemplate, this.gameObject.transform.parent);
         gameObject.layer = splittingLayer;
         newNanobot.layer = splittingLayer;

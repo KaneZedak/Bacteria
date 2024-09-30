@@ -16,7 +16,7 @@ MonoBehaviour:
   - speaker: {fileID: 11400000, guid: 6a4d29bf186267847aebe7997ba7d30f, type: 2}
     dialogueText: Where did it go? There is nothing on the microscope.
   - speaker: {fileID: 11400000, guid: 6112e459156e8894485a5ff86789da74, type: 2}
-    dialogueText: Apparently it is sucked into the black hole. The black hole is
+    dialogueText: Apparently it was sucked into the black hole. The black hole is
       connected with a vaccum environment. The bacteria will die without oxygen.
   - speaker: {fileID: 11400000, guid: 6a4d29bf186267847aebe7997ba7d30f, type: 2}
     dialogueText: so... are we done today, sir?

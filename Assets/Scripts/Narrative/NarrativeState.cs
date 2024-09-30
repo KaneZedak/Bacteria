@@ -15,6 +15,8 @@ public class NarrativeState : ScriptableObject
     public bool repeatable;
     public int triggerCount;
 
+    public virtual void initialize() {
+    }
     public virtual void setCallback(StateTransition functionCall) {
         callback = functionCall;
     }

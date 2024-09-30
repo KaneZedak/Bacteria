@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 0
   numDropCollected: 0
-  dropLimit: 2
+  dropLimit: 4

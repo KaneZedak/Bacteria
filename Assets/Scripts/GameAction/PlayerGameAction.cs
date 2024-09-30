@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerGameAction : ScriptableObject
 {
     public GameObject target;
+    public List<GameObject> targets;
     public delegate void callback(PlayerGameAction actionA);
 
     public callback onEnable;
@@ -20,6 +21,7 @@ public class PlayerGameAction : ScriptableObject
     public void initialize() {
         isEnabled = false;
         active = true;
+        targets = new List<GameObject>();
     }
 
     public bool getStatus() {
@@ -28,23 +30,46 @@ public class PlayerGameAction : ScriptableObject
 
     public void enableAction() {
         isEnabled = true;
-        onEnable(this);
+        if(onEnable != null) onEnable(this);
     }
 
     public void disableAction() {
         isEnabled = false;
-        onDisable(this);
+        if(onDisable != null) onDisable(this);
     }
 
     public void deactivateAction() {
         active = false;
+        if(isEnabled) disableAction();
     }
 
     public void activateAction() {
         active = true;
+        if(isEnabled) enableAction();
     }
 
     public bool isActive() {
         return active;
+    }
+
+    public void addTarget(GameObject tar) {
+        enableAction();
+        targets.Add(tar);
+    }
+
+    public void removeTarget(GameObject tar) {
+        targets.Remove(tar);
+        if(targets.Count <= 0) {
+            disableAction();
+        }
+    }
+
+    public bool hasTarget(GameObject tar) {
+        return targets.Contains(tar);
+    }
+
+    public GameObject getTarget() {
+        if(targets.Count > 0) return targets[0];
+        return null;
     }
 }
