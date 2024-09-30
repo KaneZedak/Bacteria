@@ -6,6 +6,7 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "PlayerGameActionSystem", menuName = "ScriptableObjects/GameActions/PlayerGameActionSystem")]
 public class GameActionSystem : ScriptableObject
 {
+    public PlayerGameAction basicMove;
     public delegate void Handler(string text);
     public delegate void DisableHandler();
     public static Handler showText;
@@ -20,6 +21,7 @@ public class GameActionSystem : ScriptableObject
             gameAction.onEnable += showTip;
             gameAction.onDisable += hideTip;
         }
+
         suppressTip = false;
     }
 

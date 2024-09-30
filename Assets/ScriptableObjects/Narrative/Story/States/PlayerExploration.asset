@@ -12,3 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5635fa3ed26aa874ab3a7758b8b8d72d, type: 3}
   m_Name: PlayerExploration
   m_EditorClassIdentifier: 
+  onEnterEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onLeaveEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  repeatable: 0
+  triggerCount: 0
+  killedNanocell: {fileID: 0}
+  basicMove: {fileID: 11400000, guid: 7d07bb1b7e633b144816fa92d645c89f, type: 2}
