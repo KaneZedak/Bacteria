@@ -203,8 +203,9 @@ public class player : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.collider.gameObject.tag == "waterdrop") {
+            /*
             hydration += collision.collider.gameObject.GetComponent<Waterdrop>().replenish_amount;
-            if(hydration > maxHydration) hydration = maxHydration;
+            if(hydration > maxHydration) hydration = maxHydration;*/
             Destroy(collision.collider.gameObject.gameObject);
             MyEventSystem.dropletCollected();
         }
