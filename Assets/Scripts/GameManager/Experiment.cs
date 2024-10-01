@@ -43,6 +43,8 @@ public class Experiment : MonoBehaviour
         initializeConditions();
         storyStateMachine.initialize();
         gameActionSystem.initialize();
+
+        Application.targetFrameRate = 60;
     }
     void Start()
     {

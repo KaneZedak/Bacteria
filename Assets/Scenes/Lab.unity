@@ -21452,6 +21452,10 @@ PrefabInstance:
       value: 0.51
       objectReference: {fileID: 0}
     - target: {fileID: 2439149755527637121, guid: 70cffa16d7d39a7479006f2eb44f32dd, type: 3}
+      propertyPath: dragForce
+      value: 18.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2439149755527637121, guid: 70cffa16d7d39a7479006f2eb44f32dd, type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 519420031}
