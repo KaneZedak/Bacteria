@@ -95,7 +95,8 @@ public class player : MonoBehaviour
 
         if(Experiment.gamePaused) return;
         if(mountedChair == null) playerStatusUpdate();
-        
+        hydration -= stillDrainRate * Time.deltaTime;
+
         if(attackCountTimer <= 0) {
             attackAction.activateAction();
             attackCountTimer = 0;
@@ -150,7 +151,7 @@ public class player : MonoBehaviour
         Vector2 direction = UserInputManager.playerInputs.Bacteria.move.ReadValue<Vector2>();
         direction = direction.normalized;
         rigidbody.AddForce(direction * dragForce);
-        hydration -= Mathf.Lerp(stillDrainRate, movingDrainRate, rigidbody.velocity.magnitude / maxSpeed) * Time.deltaTime;
+        //hydration -= Mathf.Lerp(stillDrainRate, movingDrainRate, rigidbody.velocity.magnitude / maxSpeed) * Time.deltaTime;
         proportion = hydration / maxHydration * (maxScale - minScale) + minScale;
 
         this.transform.localScale = new Vector3(proportion, proportion, 1);
