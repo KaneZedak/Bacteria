@@ -15,12 +15,14 @@ public class InteractableFriendly : FriendlyBacteria
 
     void Start() {
         base.Start();
+
         targetChair = null;
         player.playerMounted += onPlayerMounted;
         player.playerDismounted += OnPlayerDismounted;
         sitAction = ScriptableObject.CreateInstance<PlayerGameAction>();
         sitAction.initialize();
     }
+
     public void Update() {
         if(targetChair != null && sitAction.hasTarget(targetChair)) {
             mountChair(targetChair);

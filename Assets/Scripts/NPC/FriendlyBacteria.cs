@@ -10,10 +10,13 @@ public class FriendlyBacteria : MonoBehaviour
     public float maxRange;
     public float stretchForce;
     protected Vector2 targetPos;
+    private Animator animator;
+
     // Start is called before the first frame update
     protected void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -27,6 +30,7 @@ public class FriendlyBacteria : MonoBehaviour
 
     public void setFollowObject(GameObject gameObj) {
         followingObject = gameObj;
+        animator.SetBool("Drink", true);
     }
 
     public void moveTowardTargetPos() {

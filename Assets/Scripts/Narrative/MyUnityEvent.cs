@@ -12,6 +12,7 @@ public class MyUnityEvent
     
     public void Invoke() {
         if(!triggered || repeatable) {
+            triggered = true;
             followingActions.Invoke();
         }
     }
